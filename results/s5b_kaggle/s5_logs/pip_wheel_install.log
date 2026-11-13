@@ -1,0 +1,3 @@
+Processing ./wheels/openvino_genai-2026.5.1.0-cp313-cp313-linux_x86_64.whl
+Installing collected packages: openvino-genai
+Successfully installed openvino-genai-2026.5.1.0

@@ -1,0 +1,5 @@
+section,name,width,height,frames,mode,sink,role,status,detail,peak_rss_gb,wall_s,latents,frames_out,video_s_at_24fps,output_float32_gb,output_uint8_gb,load_s,rss_after_load_gb,threads,tiled,decode_s,s_per_frame,decoder_calls,rss_after_decode_gb,stream_equals_ram,stream_vs_ram_max_abs_diff_u8,stream_file_gb,finished_at
+A,long_512x320_49f_temporal_stream_check,512,320,49,temporal,stream,check,ok,,2.751,266.52,random,49,2.04,0.09,0.022,0.96,1.019,2,True,133.5,2.7245,6,2.483,True,0,0.022,2026-11-12 04:30:12
+A,long_512x320_257f_temporal_stream,512,320,257,temporal,stream,grid,ok,,2.591,794.17,random,257,10.71,0.471,0.118,0.95,1.021,2,True,792.62,3.0841,32,2.485,,,0.118,2026-11-12 04:43:26
+A,long_512x320_513f_temporal_stream,512,320,513,temporal,stream,grid,ok,,2.597,1544.0,random,513,21.38,0.939,0.235,1.07,1.024,2,True,1542.24,3.0063,64,2.491,,,0.235,2026-11-12 05:09:10
+A,long_512x320_1025f_temporal_stream,512,320,1025,temporal,stream,grid,ok,,2.603,3138.89,random,1025,42.71,1.877,0.469,1.28,1.027,2,True,3136.69,3.0602,128,2.497,,,0.469,2026-11-12 06:01:29

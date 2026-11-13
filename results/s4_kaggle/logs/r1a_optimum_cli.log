@@ -1,0 +1,19 @@
+Multiple distributions found for package optimum. Picked distribution: optimum
+WARNING:torchao.kernel.intmm:Warning: Detected no triton, on systems without Triton certain kernels will not work
+`Siglip2ImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Siglip2ImageProcessor` instead.
+Keyword arguments {'subfolder': ''} are not expected by LTXPipeline and will be ignored.
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading weights:   0%|          | 0/219 [00:00<?, ?it/s][A
+Loading weights:  35%|███▌      | 77/219 [00:00<00:00, 757.05it/s][A
+Loading weights:  70%|██████▉   | 153/219 [00:00<00:00, 512.36it/s][ALoading weights: 100%|██████████| 219/219 [00:00<00:00, 584.93it/s]
+Loading pipeline components...:  20%|██        | 1/5 [00:01<00:04,  1.03s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  4.90it/s][A
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  5.75it/s][ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  5.60it/s]
+Loading pipeline components...:  40%|████      | 2/5 [00:03<00:04,  1.61s/it]Loading pipeline components...:  80%|████████  | 4/5 [00:03<00:00,  1.53it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:03<00:00,  1.99it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:03<00:00,  1.48it/s]
+`loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+`cache_position` is deprecated as an arg, and will be removed in Transformers v5.6. Please use `q_length` and `q_offset` instead, similarly to `kv_length` and `kv_offset`
+/usr/local/lib/python3.13/dist-packages/optimum/exporters/openvino/patching_utils.py:247: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  torch.tensor(0.0, device=mask.device, dtype=dtype),
+/usr/local/lib/python3.13/dist-packages/optimum/exporters/openvino/patching_utils.py:248: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  torch.tensor(torch.finfo(torch.float16).min, device=mask.device, dtype=dtype),

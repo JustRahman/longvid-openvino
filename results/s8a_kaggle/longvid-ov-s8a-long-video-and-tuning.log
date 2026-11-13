@@ -1,0 +1,83 @@
+[{"stream_name":"stdout","time":1.199294966,"data":"[s8 04:23:50 +0:00:00] pip install openvino==2026.4.1 openvino-genai==2026.4.1.0\n"}
+,{"stream_name":"stdout","time":12.562218871,"data":"[s8 04:24:01 +0:00:11] pip install diffusers==0.39.0 huggingface_hub safetensors psutil scikit-image imageio imageio-ffmpeg matplotlib\n"}
+,{"stream_name":"stdout","time":22.060621711,"data":"date: 2026-11-12 04:24:11\n"}
+,{"stream_name":"stdout","time":22.060655558,"data":"platform: Linux-6.18.55+-x86_64-with-glibc2.39\n"}
+,{"stream_name":"stdout","time":22.060660749,"data":"python: 3.13.18 (main, Oct 26 2026, 15:28:15) [GCC 13.3.0]\n"}
+,{"stream_name":"stdout","time":22.060664987,"data":"openvino: 2026.4.1\n"}
+,{"stream_name":"stdout","time":22.060673376,"data":"nncf: not installed\n"}
+,{"stream_name":"stdout","time":22.06067637,"data":"torch: 2.11.0+cpu\n"}
+,{"stream_name":"stdout","time":22.060678929,"data":"diffusers: 0.39.0\n"}
+,{"stream_name":"stdout","time":22.060681631,"data":"numpy: 2.1.3\n"}
+,{"stream_name":"stdout","time":22.060684247,"data":"scikit-image: 0.25.2\n"}
+,{"stream_name":"stdout","time":22.060686896,"data":"psutil: 5.9.5\n"}
+,{"stream_name":"stdout","time":22.06068955,"data":"matplotlib: 3.10.0\n"}
+,{"stream_name":"stdout","time":22.060692583,"data":"cpus: 4; inference threads: all\n"}
+,{"stream_name":"stdout","time":22.060695322,"data":"RAM limit (min of RAM and cgroup): 30.0 GB; swap: 0.0 GB; available now: 30.37 GB; watchdog kill RSS: 28.5 GB\n"}
+,{"stream_name":"stdout","time":22.060698151,"data":"\n"}
+,{"stream_name":"stdout","time":22.060700701,"data":"--- lscpu ---\n"}
+,{"stream_name":"stdout","time":22.060703448,"data":"Architecture:                            x86_64\n"}
+,{"stream_name":"stdout","time":22.060706159,"data":"CPU op-mode(s):                          32-bit, 64-bit\n"}
+,{"stream_name":"stdout","time":22.060708894,"data":"Address sizes:                           46 bits physical, 48 bits virtual\n"}
+,{"stream_name":"stdout","time":22.060711772,"data":"Byte Order:                              Little Endian\n"}
+,{"stream_name":"stdout","time":22.060714546,"data":"CPU(s):                                  4\n"}
+,{"stream_name":"stdout","time":22.060717268,"data":"On-line CPU(s) list:                     0-3\n"}
+,{"stream_name":"stdout","time":22.06071992,"data":"Vendor ID:                               GenuineIntel\n"}
+,{"stream_name":"stdout","time":22.060722653,"data":"Model name:                              Intel(R) Xeon(R) CPU @ 2.20GHz\n"}
+,{"stream_name":"stdout","time":22.060725477,"data":"CPU family:                              6\n"}
+,{"stream_name":"stdout","time":22.06072816,"data":"Model:                                   79\n"}
+,{"stream_name":"stdout","time":22.060730805,"data":"Thread(s) per core:                      2\n"}
+,{"stream_name":"stdout","time":22.060733462,"data":"Core(s) per socket:                      2\n"}
+,{"stream_name":"stdout","time":22.060736096,"data":"Socket(s):                               1\n"}
+,{"stream_name":"stdout","time":22.06073875,"data":"Stepping:                                0\n"}
+,{"stream_name":"stdout","time":22.060741385,"data":"BogoMIPS:                                4399.99\n"}
+,{"stream_name":"stdout","time":22.060747258,"data":"Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap xsaveopt arat md_clear arch_capabilities\n"}
+,{"stream_name":"stdout","time":22.060763509,"data":"Hypervisor vendor:                       KVM\n"}
+,{"stream_name":"stdout","time":22.060766408,"data":"Virtualization type:                     full\n"}
+,{"stream_name":"stdout","time":22.060769074,"data":"L1d cache:                               64 KiB (2 instances)\n"}
+,{"stream_name":"stdout","time":22.060771743,"data":"L1i cache:                               64 KiB (2 instances)\n"}
+,{"stream_name":"stdout","time":22.060774435,"data":"L2 cache:                                512 KiB (2 instances)\n"}
+,{"stream_name":"stdout","time":22.060777127,"data":"L3 cache:                                55 MiB (1 instance)\n"}
+,{"stream_name":"stdout","time":22.060781113,"data":"NUMA node(s):                            1\n"}
+,{"stream_name":"stdout","time":22.06078379,"data":"NUMA node0 CPU(s):                       0-3\n"}
+,{"stream_name":"stdout","time":22.060786439,"data":"Vulnerability Gather data sampling:      Not affected\n"}
+,{"stream_name":"stdout","time":22.060789099,"data":"Vulnerability Ghostwrite:                Not affected\n"}
+,{"stream_name":"stdout","time":22.060791806,"data":"Vulnerability Indirect target selection: Mitigation; Aligned branch/return thunks\n"}
+,{"stream_name":"stdout","time":22.060794548,"data":"Vulnerability Itlb multihit:             Not affected\n"}
+,{"stream_name":"stdout","time":22.060797251,"data":"Vulnerability L1tf:                      Mitigation; PTE Inversion\n"}
+,{"stream_name":"stdout","time":22.060799965,"data":"Vulnerability Mds:                       Mitigation; Clear CPU buffers; SMT Host state unknown\n"}
+,{"stream_name":"stdout","time":22.060802711,"data":"Vulnerability Meltdown:                  Mitigation; PTI\n"}
+,{"stream_name":"stdout","time":22.060805424,"data":"Vulnerability Mmio stale data:           Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown\n"}
+,{"stream_name":"stdout","time":22.060808289,"data":"Vulnerability Old microcode:             Not affected\n"}
+,{"stream_name":"stdout","time":22.06081094,"data":"Vulnerability Reg file data sampling:    Not affected\n"}
+,{"stream_name":"stdout","time":22.060813583,"data":"Vulnerability Retbleed:                  Mitigation; IBRS\n"}
+,{"stream_name":"stdout","time":22.060816381,"data":"Vulnerability Spec rstack overflow:      Not affected\n"}
+,{"stream_name":"stdout","time":22.060819149,"data":"Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\n"}
+,{"stream_name":"stdout","time":22.060822229,"data":"Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\n"}
+,{"stream_name":"stdout","time":22.060825326,"data":"Vulnerability Spectre v2:                Mitigation; IBRS; IBPB conditional; STIBP conditional; RSB filling; PBRSB-eIBRS Not affected; BHI SW loop, KVM SW loop\n"}
+,{"stream_name":"stdout","time":22.060828234,"data":"Vulnerability Srbds:                     Not affected\n"}
+,{"stream_name":"stdout","time":22.060831015,"data":"Vulnerability Tsa:                       Not affected\n"}
+,{"stream_name":"stdout","time":22.060833693,"data":"Vulnerability Tsx async abort:           Mitigation; Clear CPU buffers; SMT Host state unknown\n"}
+,{"stream_name":"stdout","time":22.060836447,"data":"Vulnerability Vmscape:                   Not affected\n"}
+,{"stream_name":"stdout","time":22.060839125,"data":"\n"}
+,{"stream_name":"stdout","time":22.060841764,"data":"--- free -h ---\n"}
+,{"stream_name":"stdout","time":22.060844362,"data":"total        used        free      shared  buff/cache   available\n"}
+,{"stream_name":"stdout","time":22.060849997,"data":"Mem:            31Gi       999Mi        26Gi       1.2Mi       4.7Gi        30Gi\n"}
+,{"stream_name":"stdout","time":22.060852991,"data":"Swap:             0B          0B          0B\n"}
+,{"stream_name":"stdout","time":22.060855656,"data":"\n"}
+,{"stream_name":"stderr","time":23.394166706,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":24.734362838,"data":"[s8 04:24:13 +0:00:23] downloading Lightricks/LTX-Video vae/ ...\n"}
+,{"stream_name":"stderr","time":29.163235563,"data":"\rFetching 2 files:   0%|          | 0/2 [00:00\u003c?, ?it/s]\rFetching 2 files:  50%|█████     | 1/2 [00:00\u003c00:00,  7.70it/s]\rFetching 2 files: 100%|██████████| 2/2 [00:04\u003c00:00,  2.45s/it]\rFetching 2 files: 100%|██████████| 2/2 [00:04\u003c00:00,  2.10s/it]\n"}
+,{"stream_name":"stdout","time":29.16373397,"data":"[s8 04:24:18 +0:00:27] setup convert_real_native ...\n"}
+,{"stream_name":"stdout","time":116.686571438,"data":"[s8 04:25:45 +0:01:55] setup convert_real_native: ok  | peak RSS 1.777 GB, 87.52 s\n"}
+,{"stream_name":"stdout","time":116.68721706,"data":"[s8 04:25:45 +0:01:55] setup latent_stats ...\n"}
+,{"stream_name":"stdout","time":116.94232125,"data":"[s8 04:25:45 +0:01:55] setup latent_stats: ok  | peak RSS 0.031 GB, 0.25 s\n"}
+,{"stream_name":"stdout","time":116.943038742,"data":"[s8 04:25:45 +0:01:55] long_512x320_49f_temporal_stream_check ...\n"}
+,{"stream_name":"stdout","time":383.469000648,"data":"[s8 04:30:12 +0:06:22] long_512x320_49f_temporal_stream_check: ok  | peak RSS 2.751 GB, decode 133.5 s\n"}
+,{"stream_name":"stdout","time":383.469683189,"data":"[s8 04:30:12 +0:06:22] long_512x320_257f_temporal_stream ...\n"}
+,{"stream_name":"stdout","time":1177.644401829,"data":"[s8 04:43:26 +0:19:36] long_512x320_257f_temporal_stream: ok  | peak RSS 2.591 GB, decode 792.62 s\n"}
+,{"stream_name":"stdout","time":1177.645642084,"data":"[s8 04:43:26 +0:19:36] long_512x320_513f_temporal_stream ...\n"}
+,{"stream_name":"stdout","time":2721.649598309,"data":"[s8 05:09:10 +0:45:20] long_512x320_513f_temporal_stream: ok  | peak RSS 2.597 GB, decode 1542.24 s\n"}
+,{"stream_name":"stdout","time":2721.651080037,"data":"[s8 05:09:10 +0:45:20] long_512x320_1025f_temporal_stream ...\n"}
+,{"stream_name":"stdout","time":5860.540397748,"data":"[s8 06:01:29 +1:37:39] long_512x320_1025f_temporal_stream: ok  | peak RSS 2.603 GB, decode 3136.69 s\n"}
+,{"stream_name":"stdout","time":5860.542562691,"data":"[s8 06:01:29 +1:37:39] long_768x512_257f_temporal_stream ...\n"}
+]

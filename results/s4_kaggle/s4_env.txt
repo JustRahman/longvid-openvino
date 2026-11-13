@@ -1,0 +1,108 @@
+date: 2026-11-12 04:11:50
+platform: Linux-6.18.55+-x86_64-with-glibc2.39
+python: 3.13.18 (main, Oct 26 2026, 15:28:15) [GCC 13.3.0]
+openvino: 2026.5.1.dev20261111
+openvino-genai: 2026.5.1.0.dev20261111
+openvino-tokenizers: 2026.5.1.0.dev20261111
+optimum-intel: 2.2.0
+optimum: 2.3.0
+nncf: 3.4.0
+diffusers: 0.39.0
+transformers: 5.5.4
+torch: 2.11.0+cpu
+huggingface_hub: 1.21.0
+numpy: 2.1.3
+scikit-image: 0.25.2
+psutil: 5.9.5
+install steps ok: {'base': True, 'openvino_nightly': True}
+cpus: 4
+RAM limit (min of RAM and cgroup): 30.0 GB; available now: 30.36 GB; swap: 0.00 GB; watchdog kill RSS: 28.0 GB
+scratch: /tmp/s4_work
+
+--- lscpu ---
+Architecture:                            x86_64
+CPU op-mode(s):                          32-bit, 64-bit
+Address sizes:                           46 bits physical, 48 bits virtual
+Byte Order:                              Little Endian
+CPU(s):                                  4
+On-line CPU(s) list:                     0-3
+Vendor ID:                               GenuineIntel
+Model name:                              Intel(R) Xeon(R) CPU @ 2.20GHz
+CPU family:                              6
+Model:                                   79
+Thread(s) per core:                      2
+Core(s) per socket:                      2
+Socket(s):                               1
+Stepping:                                0
+BogoMIPS:                                4399.99
+Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap xsaveopt arat md_clear arch_capabilities
+Hypervisor vendor:                       KVM
+Virtualization type:                     full
+L1d cache:                               64 KiB (2 instances)
+L1i cache:                               64 KiB (2 instances)
+L2 cache:                                512 KiB (2 instances)
+L3 cache:                                55 MiB (1 instance)
+NUMA node(s):                            1
+NUMA node0 CPU(s):                       0-3
+Vulnerability Gather data sampling:      Not affected
+Vulnerability Ghostwrite:                Not affected
+Vulnerability Indirect target selection: Mitigation; Aligned branch/return thunks
+Vulnerability Itlb multihit:             Not affected
+Vulnerability L1tf:                      Mitigation; PTE Inversion
+Vulnerability Mds:                       Mitigation; Clear CPU buffers; SMT Host state unknown
+Vulnerability Meltdown:                  Mitigation; PTI
+Vulnerability Mmio stale data:           Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown
+Vulnerability Old microcode:             Not affected
+Vulnerability Reg file data sampling:    Not affected
+Vulnerability Retbleed:                  Mitigation; IBRS
+Vulnerability Spec rstack overflow:      Not affected
+Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; IBRS; IBPB conditional; STIBP conditional; RSB filling; PBRSB-eIBRS Not affected; BHI SW loop, KVM SW loop
+Vulnerability Srbds:                     Not affected
+Vulnerability Tsa:                       Not affected
+Vulnerability Tsx async abort:           Mitigation; Clear CPU buffers; SMT Host state unknown
+Vulnerability Vmscape:                   Not affected
+
+--- free -h ---
+total        used        free      shared  buff/cache   available
+Mem:            31Gi       1.0Gi        25Gi       1.2Mi       5.3Gi        30Gi
+Swap:             0B          0B          0B
+
+--- df -h ---
+Filesystem        Size  Used Avail Use% Mounted on
+overlay           8.0T  7.1T  967G  89% /
+tmpfs              64M     0   64M   0% /dev
+shm                14G     0   14G   0% /dev/shm
+/dev/loop2         20G  256K   20G   1% /kaggle/src
+/dev/mapper/snap  8.0T  7.1T  967G  89% /etc/hosts
+tmpfs             4.0K     0  4.0K   0% /proc/acpi
+
+--- pip freeze (selected) ---
+accelerate==1.15.0
+diffusers==0.39.0
+huggingface_hub==1.21.0
+nncf==3.4.0
+numpy==2.1.3
+openvino==2026.5.1.dev20261111
+openvino-genai==2026.5.1.0.dev20261111
+openvino-telemetry==2025.2.0
+openvino-tokenizers==2026.5.1.0.dev20261111
+optimum==2.3.0
+optimum-intel==2.2.0
+pytorch-ignite==0.5.5
+pytorch-lightning==2.6.6
+safetensors==0.8.0
+sentence-transformers==5.7.0
+tokenizers==0.22.2
+torch @ https://download.pytorch.org/whl/cpu/torch-2.11.0%2Bcpu-cp313-cp313-manylinux_2_28_x86_64.whl
+torchao==0.10.0
+torchaudio @ https://download.pytorch.org/whl/cpu/torchaudio-2.11.0%2Bcpu-cp313-cp313-manylinux_2_28_x86_64.whl
+torchcodec @ https://download.pytorch.org/whl/cpu/torchcodec-0.11.0%2Bcpu-cp313-cp313-manylinux_2_28_x86_64.whl
+torchdata==0.11.0
+torchinfo==1.8.0
+torchmetrics==1.9.0
+torchsummary==1.5.1
+torchtune==0.6.1
+torchvision @ https://download.pytorch.org/whl/cpu/torchvision-0.26.0%2Bcpu-cp313-cp313-manylinux_2_28_x86_64.whl
+transformers==5.5.4

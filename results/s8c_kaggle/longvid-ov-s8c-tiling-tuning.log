@@ -1,0 +1,104 @@
+[{"stream_name":"stdout","time":0.73306205,"data":"[guard] cpu vendor: GenuineIntel\n"}
+,{"stream_name":"stdout","time":0.82530958,"data":"[s8 07:22:01 +0:00:00] pip install openvino==2026.4.1 openvino-genai==2026.4.1.0\n"}
+,{"stream_name":"stdout","time":14.409146456,"data":"[s8 07:22:14 +0:00:13] pip install diffusers==0.39.0 huggingface_hub safetensors psutil scikit-image imageio imageio-ffmpeg matplotlib\n"}
+,{"stream_name":"stdout","time":23.975391077,"data":"date: 2026-11-12 07:22:24\n"}
+,{"stream_name":"stdout","time":23.975443965,"data":"platform: Linux-6.18.55+-x86_64-with-glibc2.39\n"}
+,{"stream_name":"stdout","time":23.975449632,"data":"python: 3.13.18 (main, Oct 26 2026, 15:28:15) [GCC 13.3.0]\n"}
+,{"stream_name":"stdout","time":23.975454867,"data":"openvino: 2026.4.1\n"}
+,{"stream_name":"stdout","time":23.975459304,"data":"nncf: not installed\n"}
+,{"stream_name":"stdout","time":23.975463724,"data":"torch: 2.11.0+cpu\n"}
+,{"stream_name":"stdout","time":23.975467792,"data":"diffusers: 0.39.0\n"}
+,{"stream_name":"stdout","time":23.975471981,"data":"numpy: 2.1.3\n"}
+,{"stream_name":"stdout","time":23.975476404,"data":"scikit-image: 0.25.2\n"}
+,{"stream_name":"stdout","time":23.975480234,"data":"psutil: 5.9.5\n"}
+,{"stream_name":"stdout","time":23.97548412,"data":"matplotlib: 3.10.0\n"}
+,{"stream_name":"stdout","time":23.975488192,"data":"cpus: 4; inference threads: all\n"}
+,{"stream_name":"stdout","time":23.97549262,"data":"RAM limit (min of RAM and cgroup): 30.0 GB; swap: 0.0 GB; available now: 30.41 GB; watchdog kill RSS: 28.5 GB\n"}
+,{"stream_name":"stdout","time":23.975497432,"data":"\n"}
+,{"stream_name":"stdout","time":23.975501672,"data":"--- lscpu ---\n"}
+,{"stream_name":"stdout","time":23.975505864,"data":"Architecture:                            x86_64\n"}
+,{"stream_name":"stdout","time":23.975510302,"data":"CPU op-mode(s):                          32-bit, 64-bit\n"}
+,{"stream_name":"stdout","time":23.975514604,"data":"Address sizes:                           46 bits physical, 48 bits virtual\n"}
+,{"stream_name":"stdout","time":23.97551897,"data":"Byte Order:                              Little Endian\n"}
+,{"stream_name":"stdout","time":23.97552317,"data":"CPU(s):                                  4\n"}
+,{"stream_name":"stdout","time":23.975527514,"data":"On-line CPU(s) list:                     0-3\n"}
+,{"stream_name":"stdout","time":23.975531967,"data":"Vendor ID:                               GenuineIntel\n"}
+,{"stream_name":"stdout","time":23.975536935,"data":"Model name:                              Intel(R) Xeon(R) CPU @ 2.20GHz\n"}
+,{"stream_name":"stdout","time":23.975541714,"data":"CPU family:                              6\n"}
+,{"stream_name":"stdout","time":23.975546067,"data":"Model:                                   79\n"}
+,{"stream_name":"stdout","time":23.975550485,"data":"Thread(s) per core:                      2\n"}
+,{"stream_name":"stdout","time":23.97555476,"data":"Core(s) per socket:                      2\n"}
+,{"stream_name":"stdout","time":23.975559399,"data":"Socket(s):                               1\n"}
+,{"stream_name":"stdout","time":23.975563774,"data":"Stepping:                                0\n"}
+,{"stream_name":"stdout","time":23.975568171,"data":"BogoMIPS:                                4399.99\n"}
+,{"stream_name":"stdout","time":23.975573597,"data":"Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap xsaveopt arat md_clear arch_capabilities\n"}
+,{"stream_name":"stdout","time":23.975596077,"data":"Hypervisor vendor:                       KVM\n"}
+,{"stream_name":"stdout","time":23.975601065,"data":"Virtualization type:                     full\n"}
+,{"stream_name":"stdout","time":23.975605574,"data":"L1d cache:                               64 KiB (2 instances)\n"}
+,{"stream_name":"stdout","time":23.97560995,"data":"L1i cache:                               64 KiB (2 instances)\n"}
+,{"stream_name":"stdout","time":23.975614552,"data":"L2 cache:                                512 KiB (2 instances)\n"}
+,{"stream_name":"stdout","time":23.975619505,"data":"L3 cache:                                55 MiB (1 instance)\n"}
+,{"stream_name":"stdout","time":23.975625935,"data":"NUMA node(s):                            1\n"}
+,{"stream_name":"stdout","time":23.975630402,"data":"NUMA node0 CPU(s):                       0-3\n"}
+,{"stream_name":"stdout","time":23.975635245,"data":"Vulnerability Gather data sampling:      Not affected\n"}
+,{"stream_name":"stdout","time":23.975640269,"data":"Vulnerability Ghostwrite:                Not affected\n"}
+,{"stream_name":"stdout","time":23.975645309,"data":"Vulnerability Indirect target selection: Mitigation; Aligned branch/return thunks\n"}
+,{"stream_name":"stdout","time":23.975650088,"data":"Vulnerability Itlb multihit:             Not affected\n"}
+,{"stream_name":"stdout","time":23.975654802,"data":"Vulnerability L1tf:                      Mitigation; PTE Inversion\n"}
+,{"stream_name":"stdout","time":23.975659745,"data":"Vulnerability Mds:                       Mitigation; Clear CPU buffers; SMT Host state unknown\n"}
+,{"stream_name":"stdout","time":23.975665002,"data":"Vulnerability Meltdown:                  Mitigation; PTI\n"}
+,{"stream_name":"stdout","time":23.975669695,"data":"Vulnerability Mmio stale data:           Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown\n"}
+,{"stream_name":"stdout","time":23.975674492,"data":"Vulnerability Old microcode:             Not affected\n"}
+,{"stream_name":"stdout","time":23.975679439,"data":"Vulnerability Reg file data sampling:    Not affected\n"}
+,{"stream_name":"stdout","time":23.975684399,"data":"Vulnerability Retbleed:                  Mitigation; IBRS\n"}
+,{"stream_name":"stdout","time":23.975688787,"data":"Vulnerability Spec rstack overflow:      Not affected\n"}
+,{"stream_name":"stdout","time":23.975693462,"data":"Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\n"}
+,{"stream_name":"stdout","time":23.975698914,"data":"Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\n"}
+,{"stream_name":"stdout","time":23.975704504,"data":"Vulnerability Spectre v2:                Mitigation; IBRS; IBPB conditional; STIBP conditional; RSB filling; PBRSB-eIBRS Not affected; BHI SW loop, KVM SW loop\n"}
+,{"stream_name":"stdout","time":23.975709697,"data":"Vulnerability Srbds:                     Not affected\n"}
+,{"stream_name":"stdout","time":23.975714214,"data":"Vulnerability Tsa:                       Not affected\n"}
+,{"stream_name":"stdout","time":23.975719202,"data":"Vulnerability Tsx async abort:           Mitigation; Clear CPU buffers; SMT Host state unknown\n"}
+,{"stream_name":"stdout","time":23.975724318,"data":"Vulnerability Vmscape:                   Not affected\n"}
+,{"stream_name":"stdout","time":23.975729079,"data":"\n"}
+,{"stream_name":"stdout","time":23.975733452,"data":"--- free -h ---\n"}
+,{"stream_name":"stdout","time":23.975741592,"data":"total        used        free      shared  buff/cache   available\n"}
+,{"stream_name":"stdout","time":23.975746605,"data":"Mem:            31Gi       953Mi        26Gi       1.2Mi       4.6Gi        30Gi\n"}
+,{"stream_name":"stdout","time":23.975751659,"data":"Swap:             0B          0B          0B\n"}
+,{"stream_name":"stdout","time":23.975756055,"data":"\n"}
+,{"stream_name":"stderr","time":25.292664034,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":27.270637126,"data":"[s8 07:22:27 +0:00:26] downloading Lightricks/LTX-Video vae/ ...\n"}
+,{"stream_name":"stderr","time":34.810374559,"data":"\rFetching 2 files:   0%|          | 0/2 [00:00\u003c?, ?it/s]\rFetching 2 files:  50%|█████     | 1/2 [00:00\u003c00:00,  3.42it/s]\rFetching 2 files: 100%|██████████| 2/2 [00:07\u003c00:00,  4.13s/it]\rFetching 2 files: 100%|██████████| 2/2 [00:07\u003c00:00,  3.56s/it]\n"}
+,{"stream_name":"stdout","time":34.810427066,"data":"[s8 07:22:35 +0:00:33] setup convert_real_native ...\n"}
+,{"stream_name":"stdout","time":115.01564805,"data":"[s8 07:23:55 +0:01:54] setup convert_real_native: ok  | peak RSS 1.772 GB, 80.2 s\n"}
+,{"stream_name":"stdout","time":115.016101907,"data":"[s8 07:23:55 +0:01:54] setup latent_stats ...\n"}
+,{"stream_name":"stdout","time":115.322815278,"data":"[s8 07:23:55 +0:01:54] setup latent_stats: ok  | peak RSS 0.032 GB, 0.31 s\n"}
+,{"stream_name":"stdout","time":115.323897131,"data":"[s8 07:23:55 +0:01:54] setup encode_768x512_97f ...\n"}
+,{"stream_name":"stdout","time":452.713301267,"data":"[s8 07:29:33 +0:07:31] setup encode_768x512_97f: ok  | peak RSS 7.979 GB, 337.39 s\n"}
+,{"stream_name":"stdout","time":452.714818174,"data":"[s8 07:29:33 +0:07:31] tune_768x512_97f_untiled ...\n"}
+,{"stream_name":"stdout","time":800.085092163,"data":"[s8 07:35:20 +0:13:19] tune_768x512_97f_untiled: ok  | peak RSS 9.688 GB, decode 345.24 s\n"}
+,{"stream_name":"stdout","time":800.085920478,"data":"[s8 07:35:20 +0:13:19] tune_768x512_97f_chunk16_overlap8 ...\n"}
+,{"stream_name":"stdout","time":1503.836960667,"data":"[s8 07:47:04 +0:25:03] tune_768x512_97f_chunk16_overlap8: ok  | peak RSS 3.893 GB, decode 702.03 s\n"}
+,{"stream_name":"stdout","time":1526.433623171,"data":"[s8 07:47:26 +0:25:25] metrics_tune_tune_768x512_97f_chunk16_overlap8: ok  | PSNR 43.56860121926598 dB, SSIM 0.9949279126432753\n"}
+,{"stream_name":"stdout","time":1526.45624699,"data":"[s8 07:47:26 +0:25:25] tune_768x512_97f_chunk24_overlap8 ...\n"}
+,{"stream_name":"stdout","time":2044.176009327,"data":"[s8 07:56:04 +0:34:03] tune_768x512_97f_chunk24_overlap8: ok  | peak RSS 4.691 GB, decode 515.94 s\n"}
+,{"stream_name":"stdout","time":2067.630487982,"data":"[s8 07:56:28 +0:34:26] metrics_tune_tune_768x512_97f_chunk24_overlap8: ok  | PSNR 46.400023973726846 dB, SSIM 0.9971334700731888\n"}
+,{"stream_name":"stdout","time":2067.654888069,"data":"[s8 07:56:28 +0:34:26] tune_768x512_97f_chunk24_overlap16 ...\n"}
+,{"stream_name":"stdout","time":3065.705491496,"data":"[s8 08:13:06 +0:51:04] tune_768x512_97f_chunk24_overlap16: ok  | peak RSS 4.795 GB, decode 996.09 s\n"}
+,{"stream_name":"stdout","time":3088.152592925,"data":"[s8 08:13:28 +0:51:27] metrics_tune_tune_768x512_97f_chunk24_overlap16: ok  | PSNR 47.44893331158763 dB, SSIM 0.9977816798023342\n"}
+,{"stream_name":"stdout","time":3088.177191597,"data":"[s8 08:13:28 +0:51:27] tune_768x512_97f_chunk32_overlap8 ...\n"}
+,{"stream_name":"stdout","time":3536.023762489,"data":"[s8 08:20:56 +0:58:55] tune_768x512_97f_chunk32_overlap8: ok  | peak RSS 5.165 GB, decode 445.99 s\n"}
+,{"stream_name":"stdout","time":3560.035095049,"data":"[s8 08:21:20 +0:59:19] metrics_tune_tune_768x512_97f_chunk32_overlap8: ok  | PSNR 47.98146512708243 dB, SSIM 0.9980879426002502\n"}
+,{"stream_name":"stdout","time":3560.059857491,"data":"[s8 08:21:20 +0:59:19] tune_768x512_97f_chunk32_overlap16 ...\n"}
+,{"stream_name":"stdout","time":4201.077196525,"data":"[s8 08:32:01 +1:10:00] tune_768x512_97f_chunk32_overlap16: timeout killed after 641 s during decode | peak RSS 5.269 GB, decode None s\n"}
+,{"stream_name":"stdout","time":4201.079165336,"data":"[s8 08:32:01 +1:10:00] tune_768x512_97f_chunk48_overlap8: skipped time budget used up | peak RSS None GB, decode None s\n"}
+,{"stream_name":"stdout","time":4201.080624965,"data":"[s8 08:32:01 +1:10:00] tune_768x512_97f_chunk48_overlap16: skipped time budget used up | peak RSS None GB, decode None s\n"}
+,{"stream_name":"stdout","time":4201.08325337,"data":"[s8 08:32:01 +1:10:00] tune_768x512_97f_chunk64_overlap8: skipped time budget used up | peak RSS None GB, decode None s\n"}
+,{"stream_name":"stdout","time":4201.084188353,"data":"[s8 08:32:01 +1:10:00] tune_768x512_97f_chunk64_overlap16: skipped time budget used up | peak RSS None GB, decode None s\n"}
+,{"stream_name":"stdout","time":4202.553894693,"data":"[s8 08:32:03 +1:10:01] outputs in /kaggle/working: s8c_env.txt, s8c_report.md, s8c_results.csv, s8c_results.json, s8c_tuning_pareto.png\n"}
+,{"stream_name":"stderr","time":4205.704208005,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":4205.704251906,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":4206.034919107,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":4206.035046307,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":4207.114614946,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":4208.571541209,"data":"[NbConvertApp] Writing 454494 bytes to __results__.html\n"}
+]

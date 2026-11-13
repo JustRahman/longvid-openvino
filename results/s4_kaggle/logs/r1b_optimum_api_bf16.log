@@ -1,0 +1,71 @@
+Multiple distributions found for package optimum. Picked distribution: optimum
+WARNING:torchao.kernel.intmm:Warning: Detected no triton, on systems without Triton certain kernels will not work
+`Siglip2ImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Siglip2ImageProcessor` instead.
+Keyword arguments {'subfolder': ''} are not expected by LTXPipeline and will be ignored.
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading weights:   0%|          | 0/219 [00:00<?, ?it/s][A
+Loading weights:   3%|▎         | 7/219 [00:00<00:05, 39.03it/s][A
+Loading weights:   7%|▋         | 16/219 [00:00<00:03, 53.17it/s][A
+Loading weights:  11%|█▏        | 25/219 [00:00<00:03, 51.52it/s][A
+Loading weights:  14%|█▍        | 31/219 [00:00<00:03, 47.34it/s][A
+Loading weights:  16%|█▋        | 36/219 [00:03<00:32,  5.66it/s][A
+Loading weights:  20%|█▉        | 43/219 [00:04<00:28,  6.07it/s][A
+Loading weights:  26%|██▌       | 57/219 [00:04<00:14, 11.21it/s][A
+Loading weights:  28%|██▊       | 61/219 [00:07<00:30,  5.25it/s][A
+Loading weights:  29%|██▉       | 64/219 [00:08<00:32,  4.84it/s][A
+Loading weights:  38%|███▊      | 84/219 [00:08<00:12, 11.24it/s][A
+Loading weights:  41%|████      | 89/219 [00:08<00:10, 11.99it/s][A
+Loading weights:  42%|████▏     | 93/219 [00:09<00:12, 10.06it/s][A
+Loading weights:  48%|████▊     | 106/219 [00:09<00:07, 15.09it/s][A
+Loading weights:  53%|█████▎    | 115/219 [00:10<00:05, 17.76it/s][A
+Loading weights:  54%|█████▍    | 119/219 [00:10<00:05, 17.95it/s][A
+Loading weights:  57%|█████▋    | 124/219 [00:10<00:05, 17.39it/s][A
+Loading weights:  59%|█████▉    | 129/219 [00:10<00:04, 19.27it/s][A
+Loading weights:  61%|██████    | 133/219 [00:11<00:06, 13.48it/s][A
+Loading weights:  65%|██████▍   | 142/219 [00:11<00:04, 16.09it/s][A
+Loading weights:  66%|██████▌   | 145/219 [00:12<00:05, 14.41it/s][A
+Loading weights:  69%|██████▉   | 151/219 [00:15<00:14,  4.85it/s][A
+Loading weights:  70%|██████▉   | 153/219 [00:16<00:16,  3.92it/s][A
+Loading weights:  72%|███████▏  | 157/219 [00:16<00:13,  4.61it/s][A
+Loading weights:  72%|███████▏  | 158/219 [00:17<00:14,  4.16it/s][A
+Loading weights:  73%|███████▎  | 160/219 [00:20<00:30,  1.92it/s][A
+Loading weights:  74%|███████▍  | 162/219 [00:21<00:26,  2.17it/s][A
+Loading weights:  76%|███████▌  | 166/219 [00:22<00:20,  2.56it/s][A
+Loading weights:  77%|███████▋  | 169/219 [00:25<00:31,  1.58it/s][A
+Loading weights:  78%|███████▊  | 170/219 [00:26<00:28,  1.70it/s][A
+Loading weights:  78%|███████▊  | 171/219 [00:27<00:32,  1.47it/s][A
+Loading weights:  80%|███████▉  | 175/219 [00:27<00:18,  2.39it/s][A
+Loading weights:  80%|████████  | 176/219 [00:28<00:17,  2.48it/s][A
+Loading weights:  81%|████████▏ | 178/219 [00:31<00:29,  1.37it/s][A
+Loading weights:  82%|████████▏ | 179/219 [00:31<00:28,  1.39it/s][A
+Loading weights:  82%|████████▏ | 180/219 [00:32<00:25,  1.51it/s][A
+Loading weights:  84%|████████▍ | 184/219 [00:32<00:13,  2.59it/s][A
+Loading weights:  84%|████████▍ | 185/219 [00:33<00:14,  2.32it/s][A
+Loading weights:  85%|████████▌ | 187/219 [00:36<00:23,  1.36it/s][A
+Loading weights:  86%|████████▌ | 188/219 [00:36<00:21,  1.43it/s][A
+Loading weights:  86%|████████▋ | 189/219 [00:37<00:20,  1.50it/s][A
+Loading weights:  88%|████████▊ | 193/219 [00:38<00:10,  2.42it/s][A
+Loading weights:  89%|████████▊ | 194/219 [00:38<00:10,  2.42it/s][A
+Loading weights:  89%|████████▉ | 196/219 [00:41<00:18,  1.28it/s][A
+Loading weights:  90%|█████████ | 198/219 [00:42<00:14,  1.49it/s][A
+Loading weights:  92%|█████████▏| 202/219 [00:43<00:07,  2.22it/s][A
+Loading weights:  94%|█████████▎| 205/219 [00:46<00:08,  1.69it/s][A
+Loading weights:  94%|█████████▍| 206/219 [00:46<00:07,  1.72it/s][A
+Loading weights:  95%|█████████▍| 207/219 [00:47<00:07,  1.61it/s][A
+Loading weights:  96%|█████████▋| 211/219 [00:47<00:02,  2.84it/s][A
+Loading weights:  97%|█████████▋| 212/219 [00:48<00:02,  2.71it/s][A
+Loading weights:  98%|█████████▊| 214/219 [00:51<00:03,  1.44it/s][A
+Loading weights:  98%|█████████▊| 215/219 [00:51<00:02,  1.47it/s][A
+Loading weights:  99%|█████████▊| 216/219 [00:51<00:01,  1.72it/s][A
+Loading weights: 100%|██████████| 219/219 [00:53<00:00,  1.71it/s][ALoading weights: 100%|██████████| 219/219 [00:53<00:00,  4.08it/s]
+Loading pipeline components...:  20%|██        | 1/5 [00:53<03:35, 54.00s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards:  50%|█████     | 1/2 [00:21<00:21, 21.11s/it][A
+Loading checkpoint shards: 100%|██████████| 2/2 [00:32<00:00, 15.38s/it][ALoading checkpoint shards: 100%|██████████| 2/2 [00:32<00:00, 16.24s/it]
+Loading pipeline components...:  40%|████      | 2/5 [01:27<02:05, 41.89s/it]Loading pipeline components...:  80%|████████  | 4/5 [01:27<00:15, 15.69s/it]Loading pipeline components...: 100%|██████████| 5/5 [01:34<00:00, 18.94s/it]
+`loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+`cache_position` is deprecated as an arg, and will be removed in Transformers v5.6. Please use `q_length` and `q_offset` instead, similarly to `kv_length` and `kv_offset`
+/usr/local/lib/python3.13/dist-packages/optimum/exporters/openvino/patching_utils.py:247: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  torch.tensor(0.0, device=mask.device, dtype=dtype),
+/usr/local/lib/python3.13/dist-packages/optimum/exporters/openvino/patching_utils.py:248: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
+  torch.tensor(torch.finfo(torch.float16).min, device=mask.device, dtype=dtype),

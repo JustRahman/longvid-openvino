@@ -1,0 +1,32 @@
+{
+  "total_gb": 6.64,
+  "copied": false,
+  "component_bin_gb": {
+    "text_encoder": 4.44,
+    "transformer": 1.8,
+    "vae_encoder": 0.17,
+    "vae_decoder": 0.22
+  },
+  "files": {
+    "model_index.json": 412,
+    "scheduler/scheduler_config.json": 482,
+    "text_encoder/config.json": 792,
+    "text_encoder/openvino_model.bin": 4765958632,
+    "text_encoder/openvino_model.xml": 1365717,
+    "tokenizer/openvino_detokenizer.bin": 479827,
+    "tokenizer/openvino_detokenizer.xml": 8998,
+    "tokenizer/openvino_tokenizer.bin": 826840,
+    "tokenizer/openvino_tokenizer.xml": 27866,
+    "tokenizer/tokenizer.json": 2423869,
+    "tokenizer/tokenizer_config.json": 2453,
+    "transformer/config.json": 549,
+    "transformer/openvino_model.bin": 1929730528,
+    "transformer/openvino_model.xml": 3815637,
+    "vae_decoder/config.json": 7867,
+    "vae_decoder/openvino_model.bin": 238924384,
+    "vae_decoder/openvino_model.xml": 927323,
+    "vae_encoder/config.json": 1307,
+    "vae_encoder/openvino_model.bin": 180504480,
+    "vae_encoder/openvino_model.xml": 815654
+  }
+}

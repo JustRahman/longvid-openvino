@@ -1,0 +1,91 @@
+{
+ "stages": {
+  "clone": {
+   "ok": true,
+   "head": "1e573f46bc7143d280558fb21bdadfce65c841b9",
+   "expected": "1e573f46bc7143d280558fb21bdadfce65c841b9",
+   "subject": "[ASR][Samples] Add forced aligner timestamp generation sample (#4652) (2026-11-11)",
+   "submodules": "56bb86d9e53c371502a2ac4c1836f642cdce83fa thirdparty/openvino_tokenizers (56bb86d)",
+   "finished_at": "06:36:00"
+  },
+  "patch": {
+   "ok": true,
+   "sha256": "4b1f9cf084f5a03a7b896ac51b3481ebfc2c5cdc9e370b8826d211b75ae0a590",
+   "diffstat": ".../_sections/_usage_options/index.mdx             |  36 ++++++\n .../video_generation/autoencoder_kl_ltx_video.hpp  |  18 +++\n .../genai/video_generation/generation_config.hpp   |  14 ++\n .../video_generation/generation_config_utils.cpp   |   2 +\n src/cpp/src/video_generation/ltx2_pipeline.hpp     |   2 +\n src/cpp/src/video_generation/ltx_pipeline.hpp      |  12 +-\n .../models/autoencoder_kl_ltx_video.cpp            | 118 +++++++++++++++++\n src/python/openvino_genai/py_openvino_genai.pyi    |  18 ++-\n src/python/py_video_generation_models.cpp          |  15 ++-\n src/python/py_video_generation_pipelines.cpp       |   6 +-\n tests/python_tests/test_video_generation.py        | 143 +++++++++++++++++++++\n 11 files changed, 377 insertions(+), 7 deletions(-)",
+   "finished_at": "06:36:02"
+  },
+  "openvino": {
+   "ok": true,
+   "requirements": [
+    "openvino_tokenizers~=2026.5.1.0.dev",
+    "openvino~=2026.5.1.0.dev"
+   ],
+   "openvino": "2026.5.1.dev20261111",
+   "openvino_tokenizers": "2026.5.1.0.dev20261111",
+   "finished_at": "06:36:18"
+  },
+  "build": {
+   "ok": true,
+   "seconds": 1256.4,
+   "minutes": 20.9,
+   "cores": 4,
+   "wheel": "openvino_genai-2026.5.1.0-cp313-cp313-linux_x86_64.whl",
+   "wheel_mb": 7.2,
+   "compiler": [
+    "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0"
+   ],
+   "cmake_generator": "Ninja",
+   "stub_matches_generated": true,
+   "build_changed_files": "",
+   "stub_diff_lines": 0,
+   "finished_at": "06:57:16"
+  },
+  "install": {
+   "ok": true,
+   "import_check": "2026.5.1-23845-452ed9862db 2026.5.1.0-2-f731f0dead2 0 8",
+   "finished_at": "06:57:18"
+  },
+  "test_deps": {
+   "ok": true,
+   "requirements": [
+    "diffusers==0.39.0",
+    "optimum-intel @ git+https://github.com/huggingface/optimum-intel.git@20390257acb98993f99cdd3bf4df1c983eccadef",
+    "pytest==9.1.1",
+    "transformers==5.5.4",
+    "hf_transfer==0.1.9",
+    "tqdm==4.70.1"
+   ],
+   "openvino": "2026.5.1.dev20261111",
+   "openvino_tokenizers": "2026.5.1.0.dev20261111",
+   "openvino_genai": "2026.5.1.0",
+   "torch": "2.11.0+cpu",
+   "transformers": "5.5.4",
+   "diffusers": "0.39.0",
+   "optimum_intel": "2.2.0.dev0+2039025",
+   "finished_at": "06:58:22"
+  },
+  "tests_new": {
+   "ok": true,
+   "seconds": 124.0,
+   "summary_line": "========== 12 passed, 126 deselected, 3 warnings in 83.72s (0:01:23) ===========",
+   "junit": {
+    "passed": 12,
+    "failure": 0,
+    "error": 0,
+    "skipped": 0,
+    "total": 12,
+    "failed_tests": []
+   },
+   "finished_at": "07:00:26"
+  },
+  "tests_video_generation": {
+   "ok": false,
+   "skipped": "skipped (RUN_FULL_SUITE = False)",
+   "finished_at": "07:00:26"
+  }
+ },
+ "started": "2026-11-12 06:35:53",
+ "base_commit": "1e573f46bc7143d280558fb21bdadfce65c841b9",
+ "patch_sha256": "4b1f9cf084f5a03a7b896ac51b3481ebfc2c5cdc9e370b8826d211b75ae0a590",
+ "machine": "Intel(R) Xeon(R) CPU @ 2.20GHz, 4 CPUs, python 3.13.18, Linux-6.18.55+-x86_64-with-glibc2.39."
+}

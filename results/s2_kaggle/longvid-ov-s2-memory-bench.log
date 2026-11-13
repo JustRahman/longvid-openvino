@@ -1,0 +1,128 @@
+[{"stream_name":"stdout","time":0.826733093,"data":"[s2 02:23:59 +0:00:00] pip install openvino==2026.4.1 openvino-genai==2026.4.1.0\n"}
+,{"stream_name":"stdout","time":9.279837422,"data":"[s2 02:24:07 +0:00:08] pip install diffusers==0.39.0 huggingface_hub safetensors psutil pandas matplotlib\n"}
+,{"stream_name":"stdout","time":17.970127101,"data":"date: 2026-11-12 02:24:16\n"}
+,{"stream_name":"stdout","time":17.970157059,"data":"platform: Linux-6.18.55+-x86_64-with-glibc2.39\n"}
+,{"stream_name":"stdout","time":17.970161774,"data":"python: 3.13.18 (main, Oct 26 2026, 15:28:15) [GCC 13.3.0]\n"}
+,{"stream_name":"stdout","time":17.970165396,"data":"openvino: 2026.4.1\n"}
+,{"stream_name":"stdout","time":17.970188403999998,"data":"openvino-genai: 2026.4.1.0\n"}
+,{"stream_name":"stdout","time":17.970192552,"data":"torch: 2.11.0+cpu\n"}
+,{"stream_name":"stdout","time":17.97019634,"data":"diffusers: 0.39.0\n"}
+,{"stream_name":"stdout","time":17.970199755,"data":"numpy: 2.1.3\n"}
+,{"stream_name":"stdout","time":17.97020312,"data":"psutil: 5.9.5\n"}
+,{"stream_name":"stdout","time":17.970206315,"data":"pandas: 2.3.3\n"}
+,{"stream_name":"stdout","time":17.970209617,"data":"matplotlib: 3.10.0\n"}
+,{"stream_name":"stdout","time":17.970212813,"data":"nproc: 4 (os.cpu_count 4)\n"}
+,{"stream_name":"stdout","time":17.970217103,"data":"RAM total: 31.35 GB; usable limit (min of RAM and cgroup): 30.0 GB; available now: 30.38 GB; swap total: 0.0 GB\n"}
+,{"stream_name":"stdout","time":17.970221286,"data":"watchdog kill RSS: 28.5 GB; inference threads requested: all\n"}
+,{"stream_name":"stdout","time":17.970225056,"data":"\n"}
+,{"stream_name":"stdout","time":17.970228127,"data":"--- lscpu ---\n"}
+,{"stream_name":"stdout","time":17.970231574,"data":"Architecture:                            x86_64\n"}
+,{"stream_name":"stdout","time":17.970235138,"data":"CPU op-mode(s):                          32-bit, 64-bit\n"}
+,{"stream_name":"stdout","time":17.97023864,"data":"Address sizes:                           46 bits physical, 48 bits virtual\n"}
+,{"stream_name":"stdout","time":17.970242627,"data":"Byte Order:                              Little Endian\n"}
+,{"stream_name":"stdout","time":17.970246034,"data":"CPU(s):                                  4\n"}
+,{"stream_name":"stdout","time":17.970249633,"data":"On-line CPU(s) list:                     0-3\n"}
+,{"stream_name":"stdout","time":17.97025322,"data":"Vendor ID:                               GenuineIntel\n"}
+,{"stream_name":"stdout","time":17.970256856,"data":"Model name:                              Intel(R) Xeon(R) CPU @ 2.20GHz\n"}
+,{"stream_name":"stdout","time":17.97026103,"data":"CPU family:                              6\n"}
+,{"stream_name":"stdout","time":17.97026452,"data":"Model:                                   79\n"}
+,{"stream_name":"stdout","time":17.970268066,"data":"Thread(s) per core:                      2\n"}
+,{"stream_name":"stdout","time":17.970271306,"data":"Core(s) per socket:                      2\n"}
+,{"stream_name":"stdout","time":17.970274754,"data":"Socket(s):                               1\n"}
+,{"stream_name":"stdout","time":17.97027831,"data":"Stepping:                                0\n"}
+,{"stream_name":"stdout","time":17.970281571,"data":"BogoMIPS:                                4399.99\n"}
+,{"stream_name":"stdout","time":17.970289863,"data":"Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap xsaveopt arat md_clear arch_capabilities\n"}
+,{"stream_name":"stdout","time":17.970314463,"data":"Hypervisor vendor:                       KVM\n"}
+,{"stream_name":"stdout","time":17.970318489,"data":"Virtualization type:                     full\n"}
+,{"stream_name":"stdout","time":17.970321855,"data":"L1d cache:                               64 KiB (2 instances)\n"}
+,{"stream_name":"stdout","time":17.970325691,"data":"L1i cache:                               64 KiB (2 instances)\n"}
+,{"stream_name":"stdout","time":17.970329506,"data":"L2 cache:                                512 KiB (2 instances)\n"}
+,{"stream_name":"stdout","time":17.970340209,"data":"L3 cache:                                55 MiB (1 instance)\n"}
+,{"stream_name":"stdout","time":17.970344463,"data":"NUMA node(s):                            1\n"}
+,{"stream_name":"stdout","time":17.970348203,"data":"NUMA node0 CPU(s):                       0-3\n"}
+,{"stream_name":"stdout","time":17.970351992,"data":"Vulnerability Gather data sampling:      Not affected\n"}
+,{"stream_name":"stdout","time":17.970355506,"data":"Vulnerability Ghostwrite:                Not affected\n"}
+,{"stream_name":"stdout","time":17.970358952,"data":"Vulnerability Indirect target selection: Mitigation; Aligned branch/return thunks\n"}
+,{"stream_name":"stdout","time":17.970362728,"data":"Vulnerability Itlb multihit:             Not affected\n"}
+,{"stream_name":"stdout","time":17.970367101,"data":"Vulnerability L1tf:                      Mitigation; PTE Inversion\n"}
+,{"stream_name":"stdout","time":17.970371021,"data":"Vulnerability Mds:                       Mitigation; Clear CPU buffers; SMT Host state unknown\n"}
+,{"stream_name":"stdout","time":17.97037501,"data":"Vulnerability Meltdown:                  Mitigation; PTI\n"}
+,{"stream_name":"stdout","time":17.970378695,"data":"Vulnerability Mmio stale data:           Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown\n"}
+,{"stream_name":"stdout","time":17.970382896,"data":"Vulnerability Old microcode:             Not affected\n"}
+,{"stream_name":"stdout","time":17.970386608,"data":"Vulnerability Reg file data sampling:    Not affected\n"}
+,{"stream_name":"stdout","time":17.970390276,"data":"Vulnerability Retbleed:                  Mitigation; IBRS\n"}
+,{"stream_name":"stdout","time":17.970393718,"data":"Vulnerability Spec rstack overflow:      Not affected\n"}
+,{"stream_name":"stdout","time":17.970397424,"data":"Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\n"}
+,{"stream_name":"stdout","time":17.970401621,"data":"Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\n"}
+,{"stream_name":"stdout","time":17.97040549,"data":"Vulnerability Spectre v2:                Mitigation; IBRS; IBPB conditional; STIBP conditional; RSB filling; PBRSB-eIBRS Not affected; BHI SW loop, KVM SW loop\n"}
+,{"stream_name":"stdout","time":17.97040937,"data":"Vulnerability Srbds:                     Not affected\n"}
+,{"stream_name":"stdout","time":17.97041276,"data":"Vulnerability Tsa:                       Not affected\n"}
+,{"stream_name":"stdout","time":17.970416275,"data":"Vulnerability Tsx async abort:           Mitigation; Clear CPU buffers; SMT Host state unknown\n"}
+,{"stream_name":"stdout","time":17.97041971,"data":"Vulnerability Vmscape:                   Not affected\n"}
+,{"stream_name":"stdout","time":17.970423075,"data":"\n"}
+,{"stream_name":"stdout","time":19.061898836,"data":"[s2 02:24:17 +0:00:18] downloading Lightricks/LTX-Video vae/ ...\n"}
+,{"stream_name":"stderr","time":19.657147231,"data":"\rFetching 2 files:   0%|          | 0/2 [00:00\u003c?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":23.617692912,"data":"\rFetching 2 files:  50%|█████     | 1/2 [00:00\u003c00:00,  4.49it/s]\rFetching 2 files: 100%|██████████| 2/2 [00:04\u003c00:00,  2.41s/it]\rFetching 2 files: 100%|██████████| 2/2 [00:04\u003c00:00,  2.08s/it]\n"}
+,{"stream_name":"stdout","time":23.617911719,"data":"[s2 02:24:21 +0:00:22] converting decoder to OpenVINO IR (native Conv3d) ...\n"}
+,{"stream_name":"stdout","time":104.596600231,"data":"[s2 02:25:42 +0:01:43] convert: ok  | 29.11 s, peak RSS 1.774 GB, max abs diff vs PyTorch 8.285045623779297e-06, conv exec ['brgconv_avx2_1x1_f32', 'brgconv_avx2_f32']\n"}
+,{"stream_name":"stdout","time":104.596638111,"data":"[s2 02:25:42 +0:01:43] [1/27] openvino_none_512x320_9f ...\n"}
+,{"stream_name":"stdout","time":118.302938096,"data":"[s2 02:25:56 +0:01:57] [1/27] openvino_none_512x320_9f: ok  | peak RSS 2.246 GB, load 0.81 s, decode 12.31 s, wall 13.71 s\n"}
+,{"stream_name":"stdout","time":118.790937731,"data":"[s2 02:25:57 +0:01:57] [2/27] openvino_none_512x320_25f ...\n"}
+,{"stream_name":"stdout","time":152.915628355,"data":"[s2 02:26:31 +0:02:32] [2/27] openvino_none_512x320_25f: ok  | peak RSS 2.773 GB, load 0.8 s, decode 32.68 s, wall 34.12 s\n"}
+,{"stream_name":"stdout","time":152.920861467,"data":"[s2 02:26:31 +0:02:32] [3/27] openvino_none_512x320_49f ...\n"}
+,{"stream_name":"stdout","time":217.152497623,"data":"[s2 02:27:35 +0:03:36] [3/27] openvino_none_512x320_49f: ok  | peak RSS 3.566 GB, load 0.83 s, decode 62.69 s, wall 64.23 s\n"}
+,{"stream_name":"stdout","time":217.156300997,"data":"[s2 02:27:35 +0:03:36] [4/27] openvino_none_512x320_97f ...\n"}
+,{"stream_name":"stdout","time":342.512510643,"data":"[s2 02:29:40 +0:05:41] [4/27] openvino_none_512x320_97f: ok  | peak RSS 5.155 GB, load 0.84 s, decode 123.71 s, wall 125.36 s\n"}
+,{"stream_name":"stdout","time":342.516198431,"data":"[s2 02:29:40 +0:05:41] [5/27] openvino_none_512x320_161f ...\n"}
+,{"stream_name":"stdout","time":554.690217455,"data":"[s2 02:33:12 +0:09:13] [5/27] openvino_none_512x320_161f: ok  | peak RSS 7.266 GB, load 0.81 s, decode 210.37 s, wall 212.17 s\n"}
+,{"stream_name":"stdout","time":554.700776746,"data":"[s2 02:33:12 +0:09:13] [6/27] openvino_none_512x320_257f ...\n"}
+,{"stream_name":"stdout","time":876.590342377,"data":"[s2 02:38:34 +0:14:35] [6/27] openvino_none_512x320_257f: ok  | peak RSS 10.433 GB, load 0.8 s, decode 319.85 s, wall 321.89 s\n"}
+,{"stream_name":"stdout","time":876.600857743,"data":"[s2 02:38:34 +0:14:35] [7/27] openvino_none_768x512_9f ...\n"}
+,{"stream_name":"stdout","time":906.523066889,"data":"[s2 02:39:04 +0:15:05] [7/27] openvino_none_768x512_9f: ok  | peak RSS 2.717 GB, load 0.82 s, decode 28.44 s, wall 29.92 s\n"}
+,{"stream_name":"stdout","time":906.527273325,"data":"[s2 02:39:04 +0:15:05] [8/27] openvino_none_768x512_25f ...\n"}
+,{"stream_name":"stdout","time":984.046642223,"data":"[s2 02:40:22 +0:16:23] [8/27] openvino_none_768x512_25f: ok  | peak RSS 3.989 GB, load 0.8 s, decode 76.0 s, wall 77.52 s\n"}
+,{"stream_name":"stdout","time":984.050539769,"data":"[s2 02:40:22 +0:16:23] [9/27] openvino_none_768x512_49f ...\n"}
+,{"stream_name":"stdout","time":1153.723090945,"data":"[s2 02:43:11 +0:19:12] [9/27] openvino_none_768x512_49f: ok  | peak RSS 5.889 GB, load 0.79 s, decode 167.93 s, wall 169.67 s\n"}
+,{"stream_name":"stdout","time":1153.731519862,"data":"[s2 02:43:11 +0:19:12] [10/27] openvino_none_768x512_97f ...\n"}
+,{"stream_name":"stdout","time":1450.575770099,"data":"[s2 02:48:08 +0:24:09] [10/27] openvino_none_768x512_97f: ok  | peak RSS 9.689 GB, load 1.0 s, decode 294.64 s, wall 296.84 s\n"}
+,{"stream_name":"stdout","time":1450.588559719,"data":"[s2 02:48:08 +0:24:09] [11/27] openvino_none_768x512_161f ...\n"}
+,{"stream_name":"stdout","time":1935.341281037,"data":"[s2 02:56:13 +0:32:14] [11/27] openvino_none_768x512_161f: ok  | peak RSS 14.756 GB, load 0.84 s, decode 482.39 s, wall 484.75 s\n"}
+,{"stream_name":"stdout","time":1935.349567959,"data":"[s2 02:56:13 +0:32:14] [12/27] openvino_none_768x512_257f ...\n"}
+,{"stream_name":"stdout","time":2761.842045943,"data":"[s2 03:10:00 +0:46:01] [12/27] openvino_none_768x512_257f: ok  | peak RSS 22.357 GB, load 0.86 s, decode 823.59 s, wall 826.49 s\n"}
+,{"stream_name":"stdout","time":2761.847561571,"data":"[s2 03:10:00 +0:46:01] [13/27] pytorch_none_768x512_25f ...\n"}
+,{"stream_name":"stdout","time":2851.090095137,"data":"[s2 03:11:29 +0:47:30] [13/27] pytorch_none_768x512_25f: ok  | peak RSS 3.171 GB, load 12.25 s, decode 72.7 s, wall 89.24 s\n"}
+,{"stream_name":"stdout","time":2851.095561273,"data":"[s2 03:11:29 +0:47:30] [14/27] pytorch_none_768x512_49f ...\n"}
+,{"stream_name":"stdout","time":3002.534709185,"data":"[s2 03:14:00 +0:50:01] [14/27] pytorch_none_768x512_49f: ok  | peak RSS 4.554 GB, load 9.91 s, decode 138.03 s, wall 151.44 s\n"}
+,{"stream_name":"stdout","time":3002.540207998,"data":"[s2 03:14:00 +0:50:01] [15/27] pytorch_none_768x512_97f ...\n"}
+,{"stream_name":"stdout","time":3303.782780479,"data":"[s2 03:19:02 +0:55:02] [15/27] pytorch_none_768x512_97f: ok  | peak RSS 7.488 GB, load 10.23 s, decode 287.49 s, wall 301.24 s\n"}
+,{"stream_name":"stdout","time":3303.787981033,"data":"[s2 03:19:02 +0:55:02] [16/27] pytorch_spatial_768x512_25f ...\n"}
+,{"stream_name":"stdout","time":3405.610995026,"data":"[s2 03:20:43 +0:56:44] [16/27] pytorch_spatial_768x512_25f: ok  | peak RSS 2.574 GB, load 10.02 s, decode 88.36 s, wall 101.82 s\n"}
+,{"stream_name":"stdout","time":3405.615728047,"data":"[s2 03:20:43 +0:56:44] [17/27] pytorch_spatial_768x512_49f ...\n"}
+,{"stream_name":"stdout","time":3587.89870438,"data":"[s2 03:23:46 +0:59:47] [17/27] pytorch_spatial_768x512_49f: ok  | peak RSS 3.545 GB, load 9.91 s, decode 168.69 s, wall 182.28 s\n"}
+,{"stream_name":"stdout","time":3587.903504837,"data":"[s2 03:23:46 +0:59:47] [18/27] pytorch_spatial_768x512_97f ...\n"}
+,{"stream_name":"stdout","time":3997.348001179,"data":"[s2 03:30:35 +1:06:36] [18/27] pytorch_spatial_768x512_97f: ok  | peak RSS 5.519 GB, load 9.99 s, decode 395.68 s, wall 409.44 s\n"}
+,{"stream_name":"stdout","time":3997.358851503,"data":"[s2 03:30:35 +1:06:36] [19/27] pytorch_spatial_temporal_768x512_25f ...\n"}
+,{"stream_name":"stdout","time":4182.136129684,"data":"[s2 03:33:40 +1:09:41] [19/27] pytorch_spatial_temporal_768x512_25f: ok  | peak RSS 2.408 GB, load 10.85 s, decode 170.24 s, wall 184.78 s\n"}
+,{"stream_name":"stdout","time":4182.141005351,"data":"[s2 03:33:40 +1:09:41] [20/27] pytorch_spatial_temporal_768x512_49f ...\n"}
+,{"stream_name":"stdout","time":4551.753314412,"data":"[s2 03:39:50 +1:15:50] [20/27] pytorch_spatial_temporal_768x512_49f: ok  | peak RSS 2.677 GB, load 10.16 s, decode 355.84 s, wall 369.61 s\n"}
+,{"stream_name":"stdout","time":4551.75898106,"data":"[s2 03:39:50 +1:15:50] [21/27] pytorch_spatial_temporal_768x512_97f ...\n"}
+,{"stream_name":"stdout","time":5295.158068688,"data":"[s2 03:52:13 +1:28:14] [21/27] pytorch_spatial_temporal_768x512_97f: ok  | peak RSS 3.095 GB, load 10.1 s, decode 729.66 s, wall 743.4 s\n"}
+,{"stream_name":"stdout","time":5295.164888346,"data":"[s2 03:52:13 +1:28:14] [22/27] openvino_none_1216x704_9f ...\n"}
+,{"stream_name":"stdout","time":5365.013992622,"data":"[s2 03:53:23 +1:29:24] [22/27] openvino_none_1216x704_9f: ok  | peak RSS 3.672 GB, load 1.33 s, decode 67.72 s, wall 69.85 s\n"}
+,{"stream_name":"stdout","time":5365.018779654,"data":"[s2 03:53:23 +1:29:24] [23/27] openvino_none_1216x704_25f ...\n"}
+,{"stream_name":"stdout","time":5546.83777607,"data":"[s2 03:56:25 +1:32:26] [23/27] openvino_none_1216x704_25f: ok  | peak RSS 6.43 GB, load 0.86 s, decode 179.96 s, wall 181.82 s\n"}
+,{"stream_name":"stdout","time":5546.84563672,"data":"[s2 03:56:25 +1:32:26] [24/27] openvino_none_1216x704_49f ...\n"}
+,{"stream_name":"stdout","time":5889.843654563,"data":"[s2 04:02:08 +1:38:09] [24/27] openvino_none_1216x704_49f: ok  | peak RSS 10.567 GB, load 1.2 s, decode 340.34 s, wall 343.0 s\n"}
+,{"stream_name":"stdout","time":5889.852875441,"data":"[s2 04:02:08 +1:38:09] [25/27] openvino_none_1216x704_97f ...\n"}
+,{"stream_name":"stdout","time":6562.108310498,"data":"[s2 04:13:20 +1:49:21] [25/27] openvino_none_1216x704_97f: ok  | peak RSS 18.839 GB, load 0.89 s, decode 669.14 s, wall 672.25 s\n"}
+,{"stream_name":"stdout","time":6562.116154867,"data":"[s2 04:13:20 +1:49:21] [26/27] openvino_none_1216x704_161f ...\n"}
+,{"stream_name":"stdout","time":7683.513301497,"data":"[s2 04:32:01 +2:08:02] [26/27] openvino_none_1216x704_161f: oom watchdog kill during decode: RSS 28.6 GB (limit 28.5 GB), system available 2.7 GB | peak RSS 28.569 GB, load 0.91 s, decode None s, wall 1121.33 s\n"}
+,{"stream_name":"stdout","time":7683.530205917,"data":"[s2 04:32:01 +2:08:02] [27/27] openvino_none_1216x704_257f: skipped oom at 161 frames | peak RSS None GB, load None s, decode None s, wall None s\n"}
+,{"stream_name":"stdout","time":7685.602500518,"data":"[s2 04:32:03 +2:08:04] outputs in /kaggle/working: s2_env.txt, s2_memory_vs_frames.png, s2_report.md, s2_results.csv, s2_results.json\n"}
+,{"stream_name":"stderr","time":7689.67797161,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":7689.678027867,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":7690.162721097,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":7690.162765059,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":7692.603829719,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":7694.203165794,"data":"[NbConvertApp] Writing 441926 bytes to __results__.html\n"}
+]

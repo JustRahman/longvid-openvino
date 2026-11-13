@@ -1,0 +1,580 @@
+From ea40a58439ba0fe81db6ffe77dd4912cccede37e Mon Sep 17 00:00:00 2001
+From: Rahman Bazarov <96785952+JustRahman@users.noreply.github.com>
+Date: Thu, 12 Nov 2026 17:25:08 -0700
+Subject: [PATCH] Add temporal VAE tiling for LTX-Video decode
+
+AutoencoderKLLTXVideo::decode() gets an overload which decodes the latent
+video in overlapping chunks of latent frames and cross-fades the overlapping
+video frames, so the peak memory of the decoder is bounded by the chunk
+instead of the whole clip. The frame decoded from the first latent frame of
+a chunk which doesn't start the video is dropped, because the previous chunk
+has already produced it.
+
+The option is off by default and is exposed as
+VideoGenerationConfig::vae_tile_sample_min_num_frames /
+vae_tile_sample_stride_num_frames (names follow diffusers) and as arguments
+of AutoencoderKLLTXVideo.decode() in Python.
+---
+ .../_sections/_usage_options/index.mdx        |  36 +++++
+ .../autoencoder_kl_ltx_video.hpp              |  18 +++
+ .../video_generation/generation_config.hpp    |  14 ++
+ .../generation_config_utils.cpp               |   2 +
+ .../src/video_generation/ltx2_pipeline.hpp    |   2 +
+ src/cpp/src/video_generation/ltx_pipeline.hpp |  12 +-
+ .../models/autoencoder_kl_ltx_video.cpp       | 118 +++++++++++++++
+ .../openvino_genai/py_openvino_genai.pyi      |  18 ++-
+ src/python/py_video_generation_models.cpp     |  15 +-
+ src/python/py_video_generation_pipelines.cpp  |   6 +-
+ tests/python_tests/test_video_generation.py   | 143 ++++++++++++++++++
+ 11 files changed, 377 insertions(+), 7 deletions(-)
+
+diff --git a/site/docs/use-cases/video-generation/_sections/_usage_options/index.mdx b/site/docs/use-cases/video-generation/_sections/_usage_options/index.mdx
+index 6bda3d9..312d3bb 100644
+--- a/site/docs/use-cases/video-generation/_sections/_usage_options/index.mdx
++++ b/site/docs/use-cases/video-generation/_sections/_usage_options/index.mdx
+@@ -66,6 +66,42 @@ You can adjust several parameters to control the video generation process, inclu
+     </TabItemCpp>
+ </LanguageTabs>
+ 
++#### LTX-Video VAE Temporal Tiling
++
++By default the VAE decoder turns the whole latent video into frames in one inference, so its peak memory grows with the number of frames. With `vae_tile_sample_min_num_frames` set, the latent video is decoded in overlapping chunks of that many video frames, started every `vae_tile_sample_stride_num_frames` frames, and the overlapping frames are cross-faded. Peak memory of the decoder is then bounded by the chunk. Both values must be multiples of 8; `16` and `8` are the defaults of `diffusers`.
++
++<LanguageTabs>
++    <TabItemPython>
++        ```python
++        video = pipe.generate(
++          prompt,
++          num_frames=161,
++          # highlight-start
++          vae_tile_sample_min_num_frames=16,
++          vae_tile_sample_stride_num_frames=8
++          # highlight-end
++        ).video
++        ```
++    </TabItemPython>
++    <TabItemCpp>
++        ```cpp
++        ov::Tensor video = pipe.generate(
++            prompt,
++            ov::genai::num_frames(161),
++            // highlight-start
++            ov::genai::vae_tile_sample_min_num_frames(16),
++            ov::genai::vae_tile_sample_stride_num_frames(8)
++            // highlight-end
++        ).video;
++        ```
++    </TabItemCpp>
++</LanguageTabs>
++
++:::note
++- Tiling is off by default (`vae_tile_sample_min_num_frames=0`). Frames near chunk borders differ slightly from an untiled decode, because a chunk does not see the latent frames outside of it.
++- It applies to LTX-Video only and needs a VAE decoder with a dynamic number of frames, so it cannot be combined with `reshape()`. LTX-2 pipelines reject it.
++:::
++
+ #### LTX-2 and LTX-2.3 Guidance Configuration
+ 
+ LTX-2 models generate video and audio jointly, so guidance can be tuned per modality with `audio_guidance_scale` and `audio_guidance_rescale`. Left unset, each takes the loaded model's own default: LTX-2.3 ships audio defaults that are independent of the video ones (`audio_guidance_scale=7.0` against `guidance_scale=3.0`), while LTX-2 has none and falls back to its video counterpart. One consequence worth knowing: on LTX-2.3, `guidance_scale=1.0` does **not** switch guidance off, because the audio scale still asks for it.
+diff --git a/src/cpp/include/openvino/genai/video_generation/autoencoder_kl_ltx_video.hpp b/src/cpp/include/openvino/genai/video_generation/autoencoder_kl_ltx_video.hpp
+index d778d13..c6cb983 100644
+--- a/src/cpp/include/openvino/genai/video_generation/autoencoder_kl_ltx_video.hpp
++++ b/src/cpp/include/openvino/genai/video_generation/autoencoder_kl_ltx_video.hpp
+@@ -56,6 +56,24 @@ public:
+ 
+     ov::Tensor decode(const ov::Tensor& latent);
+ 
++    /**
++     * Decodes a latent video in overlapping chunks of latent frames (temporal tiling) and cross-fades the
++     * overlapping video frames linearly. The decoder runs once per chunk, so its peak memory is bounded by the
++     * chunk instead of the whole clip. Sizes are in video frames, as in diffusers' AutoencoderKLLTXVideo.
++     * A chunk that does not start the video still gets one video frame out of its first latent frame. That
++     * frame is dropped, because the previous chunk has already produced it.
++     * @param latent A latent video [B, C, F, H, W]
++     * @param tile_sample_min_num_frames A chunk length in video frames, a multiple of the temporal compression
++     * ratio. 0 disables tiling. A latent video that fits into one chunk is decoded in a single call as well.
++     * @param tile_sample_stride_num_frames A distance between chunk starts in video frames, a multiple of the
++     * temporal compression ratio not greater than tile_sample_min_num_frames. The difference is the overlap.
++     * @returns A decoded video [B, F, H, W, C]
++     * @note The decoder must accept a dynamic number of frames, so it cannot be combined with reshape().
++     */
++    ov::Tensor decode(const ov::Tensor& latent,
++                      size_t tile_sample_min_num_frames,
++                      size_t tile_sample_stride_num_frames);
++
+     const Config& get_config() const;
+ 
+     size_t get_vae_scale_factor() const;
+diff --git a/src/cpp/include/openvino/genai/video_generation/generation_config.hpp b/src/cpp/include/openvino/genai/video_generation/generation_config.hpp
+index a610467..caa61c7 100644
+--- a/src/cpp/include/openvino/genai/video_generation/generation_config.hpp
++++ b/src/cpp/include/openvino/genai/video_generation/generation_config.hpp
+@@ -95,6 +95,16 @@ struct VideoGenerationConfig {
+     /// Transformer block indices perturbed by Spatio-Temporal Guidance. Indices outside the model's
+     /// block range are ignored, matching the reference implementation.
+     std::optional<std::vector<int64_t>> spatio_temporal_guidance_blocks = std::nullopt;
++
++    /// Temporal tiling of the VAE decoder (LTX-Video): a chunk length in video frames. The latent video is decoded
++    /// in overlapping chunks which are cross-faded, so peak memory of the decoder is bounded by the chunk instead
++    /// of the whole clip. Must be a multiple of the VAE temporal compression ratio (8). 0 disables tiling.
++    /// @note Requires a VAE decoder with a dynamic number of frames, so it cannot be combined with reshape().
++    size_t vae_tile_sample_min_num_frames = 0;
++    /// A distance between chunk starts in video frames for temporal tiling of the VAE decoder. Must be a multiple
++    /// of the VAE temporal compression ratio not greater than `vae_tile_sample_min_num_frames`. The difference
++    /// between the two is the overlap. Ignored if `vae_tile_sample_min_num_frames` is 0.
++    size_t vae_tile_sample_stride_num_frames = 8;
+ };
+ 
+ /**
+@@ -136,6 +146,10 @@ static constexpr ov::Property<float> audio_guidance_rescale{"audio_guidance_resc
+ /// Transformer block indices perturbed by Spatio-Temporal Guidance.
+ static constexpr ov::Property<std::vector<int64_t>> spatio_temporal_guidance_blocks{
+     "spatio_temporal_guidance_blocks"};
++/// A chunk length in video frames for temporal tiling of the VAE decoder. 0 disables tiling.
++static constexpr ov::Property<size_t> vae_tile_sample_min_num_frames{"vae_tile_sample_min_num_frames"};
++/// A distance between chunk starts in video frames for temporal tiling of the VAE decoder.
++static constexpr ov::Property<size_t> vae_tile_sample_stride_num_frames{"vae_tile_sample_stride_num_frames"};
+ 
+ /**
+  * Function to pass 'VideoGenerationConfig' as property to 'generate()' call.
+diff --git a/src/cpp/src/video_generation/generation_config_utils.cpp b/src/cpp/src/video_generation/generation_config_utils.cpp
+index 8df3145..0ecc895 100644
+--- a/src/cpp/src/video_generation/generation_config_utils.cpp
++++ b/src/cpp/src/video_generation/generation_config_utils.cpp
+@@ -39,6 +39,8 @@ void update_generation_config(VideoGenerationConfig& config, const ov::AnyMap& p
+     read_anymap_param(properties, "audio_modality_scale", config.audio_modality_scale);
+     read_anymap_param(properties, "audio_guidance_rescale", config.audio_guidance_rescale);
+     read_anymap_param(properties, "spatio_temporal_guidance_blocks", config.spatio_temporal_guidance_blocks);
++    read_anymap_param(properties, "vae_tile_sample_min_num_frames", config.vae_tile_sample_min_num_frames);
++    read_anymap_param(properties, "vae_tile_sample_stride_num_frames", config.vae_tile_sample_stride_num_frames);
+     read_anymap_param(properties, "num_videos_per_prompt", config.num_videos_per_prompt);
+ 
+     read_anymap_param(properties, "negative_prompt", config.negative_prompt);
+diff --git a/src/cpp/src/video_generation/ltx2_pipeline.hpp b/src/cpp/src/video_generation/ltx2_pipeline.hpp
+index 5eb8719..05edeb8 100644
+--- a/src/cpp/src/video_generation/ltx2_pipeline.hpp
++++ b/src/cpp/src/video_generation/ltx2_pipeline.hpp
+@@ -177,6 +177,8 @@ class LTX2Pipeline : public VideoPipeline {
+         OPENVINO_ASSERT(!generation_config.taylorseer_config,
+                         "TaylorSeer is not supported for LTX2 pipelines");
+         OPENVINO_ASSERT(!generation_config.adapters, "LoRA adapters are not supported for LTX2 pipelines");
++        OPENVINO_ASSERT(generation_config.vae_tile_sample_min_num_frames == 0,
++                        "'vae_tile_sample_min_num_frames' is not supported for LTX2 pipelines");
+     }
+ 
+     size_t audio_num_frames_for(const VideoGenerationConfig& generation_config) const {
+diff --git a/src/cpp/src/video_generation/ltx_pipeline.hpp b/src/cpp/src/video_generation/ltx_pipeline.hpp
+index c4a7542..007b673 100644
+--- a/src/cpp/src/video_generation/ltx_pipeline.hpp
++++ b/src/cpp/src/video_generation/ltx_pipeline.hpp
+@@ -577,7 +577,9 @@ public:
+                             "Parameter 'timestep_conditioning' is not currently supported by AutoencoderKLLTX. Please, contact OpenVINO GenAI developers.");
+ 
+         const auto decode_start = std::chrono::steady_clock::now();
+-        ov::Tensor video = m_vae->decode(latent);
++        ov::Tensor video = m_vae->decode(latent,
++                                         merged_generation_config.vae_tile_sample_min_num_frames,
++                                         merged_generation_config.vae_tile_sample_stride_num_frames);
+         m_perf_metrics.vae_decoder_inference_duration =
+             std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - decode_start)
+                 .count();
+@@ -764,7 +766,9 @@ public:
+                             "Parameter 'timestep_conditioning' is not currently supported by AutoencoderKLLTX. Please, contact OpenVINO GenAI developers.");
+ 
+         const auto decode_start = std::chrono::steady_clock::now();
+-        ov::Tensor video = m_vae->decode(latent);
++        ov::Tensor video = m_vae->decode(latent,
++                                         merged_generation_config.vae_tile_sample_min_num_frames,
++                                         merged_generation_config.vae_tile_sample_stride_num_frames);
+         m_perf_metrics.vae_decoder_inference_duration =
+             std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - decode_start)
+                 .count();
+@@ -779,7 +783,9 @@ public:
+         ov::Tensor postprocessed = postprocess_latents(latent);
+ 
+         const auto decode_start = std::chrono::steady_clock::now();
+-        ov::Tensor video = m_vae->decode(postprocessed);
++        ov::Tensor video = m_vae->decode(postprocessed,
++                                         m_generation_config.vae_tile_sample_min_num_frames,
++                                         m_generation_config.vae_tile_sample_stride_num_frames);
+         m_perf_metrics.vae_decoder_inference_duration =
+             std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - decode_start)
+                 .count();
+diff --git a/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp b/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp
+index d3f3860..ec7769d 100644
+--- a/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp
++++ b/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp
+@@ -5,6 +5,7 @@
+ 
+ #include <algorithm>
+ #include <cmath>
++#include <cstring>
+ #include <fstream>
+ #include <map>
+ #include <memory>
+@@ -282,6 +283,123 @@ ov::Tensor AutoencoderKLLTXVideo::decode(const ov::Tensor& latent) {
+     return m_decoder_request.get_output_tensor();
+ }
+ 
++ov::Tensor AutoencoderKLLTXVideo::decode(const ov::Tensor& latent,
++                                         size_t tile_sample_min_num_frames,
++                                         size_t tile_sample_stride_num_frames) {
++    if (tile_sample_min_num_frames == 0) {
++        return decode(latent);
++    }
++    OPENVINO_ASSERT(m_decoder_request, "VAE decoder model must be compiled first. Cannot infer non-compiled model");
++
++    const size_t temporal_compression_ratio = static_cast<size_t>(
++        m_config.patch_size_t *
++        std::pow(2,
++                 std::accumulate(m_config.spatio_temporal_scaling.begin(), m_config.spatio_temporal_scaling.end(), 0)));
++    OPENVINO_ASSERT(tile_sample_min_num_frames % temporal_compression_ratio == 0 &&
++                        tile_sample_stride_num_frames % temporal_compression_ratio == 0,
++                    "'tile_sample_min_num_frames' and 'tile_sample_stride_num_frames' must be divisible by ",
++                    temporal_compression_ratio, " but got ", tile_sample_min_num_frames, " and ",
++                    tile_sample_stride_num_frames);
++    OPENVINO_ASSERT(tile_sample_stride_num_frames > 0 && tile_sample_stride_num_frames <= tile_sample_min_num_frames,
++                    "'tile_sample_stride_num_frames' must be in (0, 'tile_sample_min_num_frames'] but got ",
++                    tile_sample_stride_num_frames);
++
++    const ov::Shape latent_shape = latent.get_shape();
++    OPENVINO_ASSERT(latent_shape.size() == 5, "Latent video expected to be [B, C, F, H, W]");
++    const size_t batch = latent_shape[0], latent_frames = latent_shape[2];
++    // Sizes in latent frames. A chunk reads one latent frame more: its first latent frame gives one video frame only.
++    const size_t chunk = tile_sample_min_num_frames / temporal_compression_ratio;
++    const size_t step = tile_sample_stride_num_frames / temporal_compression_ratio;
++    if (latent_frames <= chunk) {
++        return decode(latent);
++    }
++    OPENVINO_ASSERT(m_decoder_request.get_compiled_model().input().get_partial_shape()[2].is_dynamic(),
++                    "Temporal VAE tiling requires a decoder with a dynamic number of frames, but it was reshaped "
++                    "to a static shape. Disable tiling or don't call reshape().");
++
++    const size_t num_frames = (latent_frames - 1) * temporal_compression_ratio + 1;
++    const size_t keep = tile_sample_stride_num_frames;  // video frames a chunk contributes
++    const size_t overlap = tile_sample_min_num_frames - tile_sample_stride_num_frames;
++    // one channel of one latent frame in bytes
++    const size_t latent_plane_bytes = latent_shape[3] * latent_shape[4] * latent.get_element_type().size();
++    const uint8_t* latent_data = static_cast<const uint8_t*>(latent.data());
++
++    ov::Tensor video;
++    // The last frames of the previous chunk [B, tail_frames, H, W, C]. The infer request reuses its output
++    // buffer, so they are copied. Nothing else of the previous chunk is needed for blending.
++    std::vector<uint8_t> tail;
++    size_t tail_frames = 0, frame_size = 0, position = 0;
++
++    for (size_t begin = 0; begin < latent_frames; begin += step) {
++        const size_t chunk_latent_frames = std::min(chunk + 1, latent_frames - begin);
++        if (begin > 0 && chunk_latent_frames == 1) {
++            // A single latent frame decodes to the frame which is dropped below
++            break;
++        }
++
++        ov::Shape chunk_shape = latent_shape;
++        chunk_shape[2] = chunk_latent_frames;
++        ov::Tensor latent_chunk(latent.get_element_type(), chunk_shape);
++        uint8_t* chunk_data = static_cast<uint8_t*>(latent_chunk.data());
++        for (size_t bc = 0; bc < batch * latent_shape[1]; ++bc) {
++            std::memcpy(chunk_data + bc * chunk_latent_frames * latent_plane_bytes,
++                        latent_data + (bc * latent_frames + begin) * latent_plane_bytes,
++                        chunk_latent_frames * latent_plane_bytes);
++        }
++
++        m_decoder_request.set_input_tensor(latent_chunk);
++        m_decoder_request.infer();
++        ov::Tensor decoded = m_decoder_request.get_output_tensor();
++        const ov::Shape decoded_shape = decoded.get_shape();
++        OPENVINO_ASSERT(decoded.get_element_type() == ov::element::u8 && decoded_shape.size() == 5 &&
++                            decoded_shape[1] == (chunk_latent_frames - 1) * temporal_compression_ratio + 1,
++                        "Unexpected VAE decoder output ", decoded.get_element_type(), " ", decoded_shape);
++
++        // Only the first chunk starts with the first frame of the video. In other chunks the frame decoded from
++        // the first latent frame repeats the last frame the previous chunk contributed, so it's dropped.
++        const size_t skip = begin == 0 ? 0 : 1;
++        const size_t chunk_frames = decoded_shape[1] - skip;
++        const size_t blend_frames = std::min({tail_frames, chunk_frames, overlap});
++        const size_t write_frames = std::min(keep + 1 - skip, std::min(chunk_frames, num_frames - position));
++        const size_t next_tail_frames = std::min(chunk_frames, overlap);
++        if (begin == 0) {
++            frame_size = decoded_shape[2] * decoded_shape[3] * decoded_shape[4];
++            video = ov::Tensor(ov::element::u8,
++                               {batch, num_frames, decoded_shape[2], decoded_shape[3], decoded_shape[4]});
++        }
++        std::vector<uint8_t> next_tail(batch * next_tail_frames * frame_size);
++
++        for (size_t b = 0; b < batch; ++b) {
++            uint8_t* current = decoded.data<uint8_t>() + (b * decoded_shape[1] + skip) * frame_size;
++            // Linear cross-fade: frame k is previous * (1 - k / blend_frames) + current * (k / blend_frames)
++            const uint8_t* previous = tail.data() + (b * tail_frames + tail_frames - blend_frames) * frame_size;
++            for (size_t k = 0; k < blend_frames; ++k) {
++                const double weight = static_cast<double>(k) / blend_frames;
++                const float previous_weight = static_cast<float>(1.0 - weight);
++                const float current_weight = static_cast<float>(weight);
++                uint8_t* current_frame = current + k * frame_size;
++                const uint8_t* previous_frame = previous + k * frame_size;
++                for (size_t i = 0; i < frame_size; ++i) {
++                    current_frame[i] = static_cast<uint8_t>(
++                        std::nearbyint(previous_frame[i] * previous_weight + current_frame[i] * current_weight));
++                }
++            }
++            std::memcpy(video.data<uint8_t>() + (b * num_frames + position) * frame_size,
++                        current,
++                        write_frames * frame_size);
++            std::memcpy(next_tail.data() + b * next_tail_frames * frame_size,
++                        current + (chunk_frames - next_tail_frames) * frame_size,
++                        next_tail_frames * frame_size);
++        }
++        position += write_frames;
++        tail = std::move(next_tail);
++        tail_frames = next_tail_frames;
++    }
++    OPENVINO_ASSERT(position == num_frames, "Temporal VAE tiling produced ", position, " frames instead of ", num_frames);
++
++    return video;
++}
++
+ ov::Tensor AutoencoderKLLTXVideo::encode(const ov::Tensor& video, std::shared_ptr<Generator> generator) {
+     OPENVINO_ASSERT(m_encoder_request || m_encoder_model,
+         "AutoencoderKLLTXVideo is created without 'VAE encoder' capability. "
+diff --git a/src/python/openvino_genai/py_openvino_genai.pyi b/src/python/openvino_genai/py_openvino_genai.pyi
+index 043c619..18af576 100644
+--- a/src/python/openvino_genai/py_openvino_genai.pyi
++++ b/src/python/openvino_genai/py_openvino_genai.pyi
+@@ -1009,10 +1009,14 @@ class AutoencoderKLLTXVideo:
+                         device (str): Device to run the model on (e.g., CPU, GPU).
+                         kwargs: Device properties.
+         """
+-    def decode(self, latent: openvino._pyopenvino.Tensor) -> openvino._pyopenvino.Tensor:
++    def decode(self, latent: openvino._pyopenvino.Tensor, tile_sample_min_num_frames: typing.SupportsInt = 0, tile_sample_stride_num_frames: typing.SupportsInt = 8) -> openvino._pyopenvino.Tensor:
+         """
+                         Decodes latent video to pixel space.
+                         latent (ov.Tensor): Latent video tensor.
++                        tile_sample_min_num_frames (int): Chunk length in video frames for temporal tiling: the latent
++                            video is decoded in overlapping chunks which are cross-faded, so peak memory is bounded by
++                            the chunk instead of the whole clip. 0 disables tiling.
++                        tile_sample_stride_num_frames (int): Distance between chunk starts in video frames.
+                         Returns: Decoded video tensor.
+         """
+     def encode(self, video: openvino._pyopenvino.Tensor, generator: Generator = None) -> openvino._pyopenvino.Tensor:
+@@ -7062,6 +7066,18 @@ class VideoGenerationConfig:
+     def stg_scale(self, arg0: typing.SupportsFloat | None) -> None:
+         ...
+     @property
++    def vae_tile_sample_min_num_frames(self) -> int:
++        ...
++    @vae_tile_sample_min_num_frames.setter
++    def vae_tile_sample_min_num_frames(self, arg0: typing.SupportsInt) -> None:
++        ...
++    @property
++    def vae_tile_sample_stride_num_frames(self) -> int:
++        ...
++    @vae_tile_sample_stride_num_frames.setter
++    def vae_tile_sample_stride_num_frames(self, arg0: typing.SupportsInt) -> None:
++        ...
++    @property
+     def width(self) -> int:
+         ...
+     @width.setter
+diff --git a/src/python/py_video_generation_models.cpp b/src/python/py_video_generation_models.cpp
+index 01e1bcf..86eb430 100644
+--- a/src/python/py_video_generation_models.cpp
++++ b/src/python/py_video_generation_models.cpp
+@@ -245,12 +245,23 @@ void init_autoencoder_kl_ltx_video(py::module_& m) {
+                 Returns: Normalized latent tensor.
+             )")
+         .def("decode",
+-             &ov::genai::AutoencoderKLLTXVideo::decode,
+-             py::call_guard<py::gil_scoped_release>(),
++             [](ov::genai::AutoencoderKLLTXVideo& self,
++                const ov::Tensor& latent,
++                size_t tile_sample_min_num_frames,
++                size_t tile_sample_stride_num_frames) {
++                 py::gil_scoped_release release;
++                 return self.decode(latent, tile_sample_min_num_frames, tile_sample_stride_num_frames);
++             },
+              py::arg("latent"),
++             py::arg("tile_sample_min_num_frames") = 0,
++             py::arg("tile_sample_stride_num_frames") = 8,
+              R"(
+                 Decodes latent video to pixel space.
+                 latent (ov.Tensor): Latent video tensor.
++                tile_sample_min_num_frames (int): Chunk length in video frames for temporal tiling: the latent
++                    video is decoded in overlapping chunks which are cross-faded, so peak memory is bounded by
++                    the chunk instead of the whole clip. 0 disables tiling.
++                tile_sample_stride_num_frames (int): Distance between chunk starts in video frames.
+                 Returns: Decoded video tensor.
+             )");
+ }
+diff --git a/src/python/py_video_generation_pipelines.cpp b/src/python/py_video_generation_pipelines.cpp
+index ba47940..868f7dc 100644
+--- a/src/python/py_video_generation_pipelines.cpp
++++ b/src/python/py_video_generation_pipelines.cpp
+@@ -42,7 +42,11 @@ void init_video_generation_pipelines(py::module_& m) {
+         .def_readwrite("audio_modality_scale", &ov::genai::VideoGenerationConfig::audio_modality_scale)
+         .def_readwrite("audio_guidance_rescale", &ov::genai::VideoGenerationConfig::audio_guidance_rescale)
+         .def_readwrite("spatio_temporal_guidance_blocks",
+-                       &ov::genai::VideoGenerationConfig::spatio_temporal_guidance_blocks);
++                       &ov::genai::VideoGenerationConfig::spatio_temporal_guidance_blocks)
++        .def_readwrite("vae_tile_sample_min_num_frames",
++                       &ov::genai::VideoGenerationConfig::vae_tile_sample_min_num_frames)
++        .def_readwrite("vae_tile_sample_stride_num_frames",
++                       &ov::genai::VideoGenerationConfig::vae_tile_sample_stride_num_frames);
+ 
+     py::class_<ov::genai::VideoGenerationResult>(m, "VideoGenerationResult")
+         .def_readonly("video", &ov::genai::VideoGenerationResult::video)
+diff --git a/tests/python_tests/test_video_generation.py b/tests/python_tests/test_video_generation.py
+index 4f9a700..a508641 100644
+--- a/tests/python_tests/test_video_generation.py
++++ b/tests/python_tests/test_video_generation.py
+@@ -980,6 +980,149 @@ class TestAutoEncoderKLLTXVideoEncoder:
+             vae.encode(video, None)
+ 
+ 
++class TestAutoEncoderKLLTXVideoTemporalTiling:
++    """Temporal tiling of the VAE decoder: overlapping chunks of latent frames, cross-faded in time."""
++
++    LATENT_FRAMES = 5
++
++    @pytest.fixture(autouse=True)
++    def require_decoder(self, video_generation_model):
++        if not Path(video_generation_model, "vae_decoder").exists():
++            pytest.skip("vae_decoder not available in test model")
++
++    def _make_vae(self, video_generation_model):
++        # (decoder_path, "CPU") would resolve to the (vae_encoder_path, vae_decoder_path) constructor
++        vae = ov_genai.AutoencoderKLLTXVideo(str(Path(video_generation_model) / "vae_decoder"))
++        vae.compile("CPU")
++        return vae
++
++    def _latent(self, vae):
++        shape = [1, vae.get_config().latent_channels, self.LATENT_FRAMES, 2, 2]
++        return ov.Tensor(np.random.default_rng(42).standard_normal(shape).astype(np.float32))
++
++    @staticmethod
++    def _decode(vae, latent, *tiling):
++        # decode() may return the output buffer of the infer request, which the next call overwrites
++        return np.array(vae.decode(latent, *tiling).data)
++
++    def _temporal_compression_ratio(self, untiled):
++        # the first latent frame decodes to one video frame, every other one to `ratio` frames
++        return (untiled.shape[1] - 1) // (self.LATENT_FRAMES - 1)
++
++    def _reference(self, vae, latent, tile_min, tile_stride, ratio):
++        """The same tiling in NumPy on top of plain decode() calls: video [1, F, H, W, C] as float32."""
++        chunk, step, overlap = tile_min // ratio, tile_stride // ratio, tile_min - tile_stride
++        frames, previous = [], None
++        for begin in range(0, self.LATENT_FRAMES, step):
++            piece = latent.data[:, :, begin : begin + chunk + 1]
++            if begin > 0 and piece.shape[2] == 1:
++                break
++            current = self._decode(vae, ov.Tensor(np.ascontiguousarray(piece))).astype(np.float32)
++            if begin > 0:
++                current = current[:, 1:]  # the frame of the first latent frame was produced by the previous chunk
++                extent = min(previous.shape[1], current.shape[1], overlap)
++                tail = previous[:, previous.shape[1] - extent :]
++                for k in range(extent):
++                    previous_weight, current_weight = np.float32(1.0 - k / extent), np.float32(k / extent)
++                    current[:, k] = tail[:, k] * previous_weight + current[:, k] * current_weight
++            frames.append(current[:, : tile_stride + (begin == 0)])
++            previous = current
++        return np.concatenate(frames, axis=1)[:, : (self.LATENT_FRAMES - 1) * ratio + 1]
++
++    def test_tiling_off_matches_default(self, video_generation_model):
++        vae = self._make_vae(video_generation_model)
++        latent = self._latent(vae)
++        untiled = self._decode(vae, latent)
++        np.testing.assert_array_equal(self._decode(vae, latent, 0, 8), untiled)
++
++    def test_chunk_not_smaller_than_clip_matches_untiled(self, video_generation_model):
++        vae = self._make_vae(video_generation_model)
++        latent = self._latent(vae)
++        untiled = self._decode(vae, latent)
++        ratio = self._temporal_compression_ratio(untiled)
++        # all latent frames fit into one chunk, so there is nothing to tile
++        tiled = self._decode(vae, latent, self.LATENT_FRAMES * ratio, ratio)
++        np.testing.assert_array_equal(tiled, untiled)
++
++    # chunk / stride in latent frames: diffusers' default 16 / 8 frames, no overlap, overlap longer than the stride
++    @pytest.mark.parametrize(("chunk", "step"), [(2, 1), (1, 1), (3, 1), (2, 2)])
++    def test_small_chunks_match_reference(self, video_generation_model, chunk, step):
++        vae = self._make_vae(video_generation_model)
++        latent = self._latent(vae)
++        untiled = self._decode(vae, latent)
++        ratio = self._temporal_compression_ratio(untiled)
++
++        tiled = self._decode(vae, latent, chunk * ratio, step * ratio)
++        assert tiled.shape == untiled.shape
++        assert tiled.dtype == np.uint8
++
++        reference = self._reference(vae, latent, chunk * ratio, step * ratio, ratio)
++        # Both cross-fade the same uint8 chunks with the same weights. The implementation rounds a blended frame
++        # to uint8 right away, the reference rounds once at the end, so a frame which is blended twice
++        # (overlap longer than the stride) or a tie broken differently can be off by one level, not more.
++        difference = np.abs(tiled.astype(np.float32) - np.rint(reference))
++        assert difference.max() <= 1, f"max abs difference {difference.max()}"
++
++    def test_small_chunks_close_to_untiled(self, video_generation_model):
++        vae = self._make_vae(video_generation_model)
++        latent = self._latent(vae)
++        untiled = self._decode(vae, latent).astype(np.float32)
++        ratio = self._temporal_compression_ratio(untiled)
++        tiled = self._decode(vae, latent, 2 * ratio, ratio).astype(np.float32)
++
++        # A chunk doesn't see the latent frames outside of it, so tiled frames differ from untiled ones, and with
++        # the random weights of the test model there is no absolute level of error to expect. What must hold is
++        # that the tiled video is aligned with the untiled one: frame i is closer to untiled frame i than to
++        # untiled frame i - 1. Dropping the wrong frame of a chunk (the last one instead of the first one) shows
++        # every chunk but the first one a frame late and inverts the inequality.
++        error_same_frame = np.abs(tiled[:, 1:] - untiled[:, 1:]).mean()
++        error_previous_frame = np.abs(tiled[:, 1:] - untiled[:, :-1]).mean()
++        assert error_same_frame < error_previous_frame, (error_same_frame, error_previous_frame)
++
++    def test_invalid_tile_sizes_raise(self, video_generation_model):
++        vae = self._make_vae(video_generation_model)
++        latent = self._latent(vae)
++        ratio = self._temporal_compression_ratio(self._decode(vae, latent))
++        with pytest.raises(RuntimeError, match="must be divisible by"):
++            vae.decode(latent, 2 * ratio + 1, ratio)
++        with pytest.raises(RuntimeError, match="tile_sample_stride_num_frames"):
++            vae.decode(latent, ratio, 2 * ratio)
++
++    def test_config_defaults(self):
++        config = ov_genai.VideoGenerationConfig()
++        assert config.vae_tile_sample_min_num_frames == 0  # tiling is off by default
++        assert config.vae_tile_sample_stride_num_frames == 8
++
++    def test_generate(self, video_generation_model):
++        pipe = ov_genai.Text2VideoPipeline(video_generation_model, "CPU")
++        kwargs = dict(GEN_KWARGS, num_frames=25)
++
++        def run(**tiling):
++            result = pipe.generate("test prompt", generator=ov_genai.CppStdGenerator(42), **tiling, **kwargs)
++            return np.array(result.video.data)
++
++        untiled = run()
++        np.testing.assert_array_equal(run(vae_tile_sample_min_num_frames=0), untiled)
++        # the whole clip fits into one chunk
++        np.testing.assert_array_equal(run(vae_tile_sample_min_num_frames=32), untiled)
++        tiled = run(vae_tile_sample_min_num_frames=16, vae_tile_sample_stride_num_frames=8)
++        assert tiled.shape == untiled.shape == (1, 25, 32, 32, 3)
++        assert tiled.dtype == np.uint8
++
++    def test_generate_after_static_reshape_raises(self, video_generation_model):
++        pipe = ov_genai.Text2VideoPipeline(video_generation_model)
++        pipe.reshape(1, 25, 32, 32, 3.0)
++        pipe.compile("CPU")
++        with pytest.raises(RuntimeError, match="dynamic number of frames"):
++            pipe.generate("test prompt", num_inference_steps=2, vae_tile_sample_min_num_frames=16)
++
++    @pytest.mark.parametrize("video_generation_model", [LTX2_MODEL_ID], indirect=True)
++    def test_ltx2_rejected(self, video_generation_model):
++        pipe = ov_genai.Text2VideoPipeline(video_generation_model, "CPU")
++        with pytest.raises(RuntimeError, match="vae_tile_sample_min_num_frames"):
++            pipe.generate("test prompt", vae_tile_sample_min_num_frames=16, **GEN_KWARGS)
++
++
+ class TestTaylorSeer:
+     def test_taylorseer_custom_config(self, video_generation_model):
+         """Test TaylorSeer with custom cache configuration.
+-- 
+2.50.1 (Apple Git-155)
+

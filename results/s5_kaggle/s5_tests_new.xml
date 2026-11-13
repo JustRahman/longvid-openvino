@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="8" skipped="0" tests="12" time="83.184" timestamp="2026-11-12T04:36:54.214056+00:00" hostname="f3d3e0395d5c"><testcase classname="test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling" name="test_ltx2_rejected[video_generation_model=tiny-random-ltx2]" time="46.644" /><testcase classname="test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling" name="test_tiling_off_matches_default" time="33.400"><failure message="RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:&#10;Failed to open &quot;CPU/config.json&quot;">self = &lt;test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling object at 0x7e6ad73cde50&gt;
+video_generation_model = '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx-video/optimum-intel-internal-testing/tiny-random-ltx-video'
+
+    def test_tiling_off_matches_default(self, video_generation_model):
+&gt;       vae = self._make_vae(video_generation_model)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/python_tests/test_video_generation.py:1030: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling object at 0x7e6ad73cde50&gt;
+video_generation_model = '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx-video/optimum-intel-internal-testing/tiny-random-ltx-video'
+
+    def _make_vae(self, video_generation_model):
+&gt;       return ov_genai.AutoencoderKLLTXVideo(str(Path(video_generation_model) / "vae_decoder"), "CPU")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:
+E       Failed to open "CPU/config.json"
+
+tests/python_tests/test_video_generation.py:994: RuntimeError</failure></testcase><testcase classname="test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling" name="test_chunk_not_smaller_than_clip_matches_untiled" time="0.003"><failure message="RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:&#10;Failed to open &quot;CPU/config.json&quot;">self = &lt;test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling object at 0x7e6ad73cdf90&gt;
+video_generation_model = '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx-video/optimum-intel-internal-testing/tiny-random-ltx-video'
+
+    def test_chunk_not_smaller_than_clip_matches_untiled(self, video_generation_model):
+&gt;       vae = self._make_vae(video_generation_model)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/python_tests/test_video_generation.py:1036: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling object at 0x7e6ad73cdf90&gt;
+video_generation_model = '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx-video/optimum-intel-internal-testing/tiny-random-ltx-video'
+
+    def _make_vae(self, video_generation_model):
+&gt;       return ov_genai.AutoencoderKLLTXVideo(str(Path(video_generation_model) / "vae_decoder"), "CPU")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:
+E       Failed to open "CPU/config.json"
+
+tests/python_tests/test_video_generation.py:994: RuntimeError</failure></testcase><testcase classname="test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling" name="test_small_chunks_match_reference[chunk=2-step=1]" time="0.003"><failure message="RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:&#10;Failed to open &quot;CPU/config.json&quot;">self = &lt;test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling object at 0x7e6ad8ab7bb0&gt;
+video_generation_model = '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx-video/optimum-intel-internal-testing/tiny-random-ltx-video'
+chunk = 2, step = 1
+
+    @pytest.mark.parametrize(("chunk", "step"), [(2, 1), (1, 1), (3, 1), (2, 2)])
+    def test_small_chunks_match_reference(self, video_generation_model, chunk, step):
+&gt;       vae = self._make_vae(video_generation_model)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/python_tests/test_video_generation.py:1047: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling object at 0x7e6ad8ab7bb0&gt;
+video_generation_model = '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx-video/optimum-intel-internal-testing/tiny-random-ltx-video'
+
+    def _make_vae(self, video_generation_model):
+&gt;       return ov_genai.AutoencoderKLLTXVideo(str(Path(video_generation_model) / "vae_decoder"), "CPU")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:
+E       Failed to open "CPU/config.json"
+
+tests/python_tests/test_video_generation.py:994: RuntimeError</failure></testcase><testcase classname="test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling" name="test_small_chunks_match_reference[chunk=1-step=1]" time="0.003"><failure message="RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:&#10;Failed to open &quot;CPU/config.json&quot;">self = &lt;test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling object at 0x7e6ad8ab7ce0&gt;
+video_generation_model = '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx-video/optimum-intel-internal-testing/tiny-random-ltx-video'
+chunk = 1, step = 1
+
+    @pytest.mark.parametrize(("chunk", "step"), [(2, 1), (1, 1), (3, 1), (2, 2)])
+    def test_small_chunks_match_reference(self, video_generation_model, chunk, step):
+&gt;       vae = self._make_vae(video_generation_model)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/python_tests/test_video_generation.py:1047: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling object at 0x7e6ad8ab7ce0&gt;
+video_generation_model = '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx-video/optimum-intel-internal-testing/tiny-random-ltx-video'
+
+    def _make_vae(self, video_generation_model):
+&gt;       return ov_genai.AutoencoderKLLTXVideo(str(Path(video_generation_model) / "vae_decoder"), "CPU")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:
+E       Failed to open "CPU/config.json"
+
+tests/python_tests/test_video_generation.py:994: RuntimeError</failure></testcase><testcase classname="test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling" name="test_small_chunks_match_reference[chunk=3-step=1]" time="0.003"><failure message="RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:&#10;Failed to open &quot;CPU/config.json&quot;">self = &lt;test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling object at 0x7e6ad6e62d50&gt;
+video_generation_model = '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx-video/optimum-intel-internal-testing/tiny-random-ltx-video'
+chunk = 3, step = 1
+
+    @pytest.mark.parametrize(("chunk", "step"), [(2, 1), (1, 1), (3, 1), (2, 2)])
+    def test_small_chunks_match_reference(self, video_generation_model, chunk, step):
+&gt;       vae = self._make_vae(video_generation_model)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/python_tests/test_video_generation.py:1047: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling object at 0x7e6ad6e62d50&gt;
+video_generation_model = '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx-video/optimum-intel-internal-testing/tiny-random-ltx-video'
+
+    def _make_vae(self, video_generation_model):
+&gt;       return ov_genai.AutoencoderKLLTXVideo(str(Path(video_generation_model) / "vae_decoder"), "CPU")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:
+E       Failed to open "CPU/config.json"
+
+tests/python_tests/test_video_generation.py:994: RuntimeError</failure></testcase><testcase classname="test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling" name="test_small_chunks_match_reference[chunk=2-step=2]" time="0.003"><failure message="RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:&#10;Failed to open &quot;CPU/config.json&quot;">self = &lt;test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling object at 0x7e6ad8b1e580&gt;
+video_generation_model = '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx-video/optimum-intel-internal-testing/tiny-random-ltx-video'
+chunk = 2, step = 2
+
+    @pytest.mark.parametrize(("chunk", "step"), [(2, 1), (1, 1), (3, 1), (2, 2)])
+    def test_small_chunks_match_reference(self, video_generation_model, chunk, step):
+&gt;       vae = self._make_vae(video_generation_model)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/python_tests/test_video_generation.py:1047: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling object at 0x7e6ad8b1e580&gt;
+video_generation_model = '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx-video/optimum-intel-internal-testing/tiny-random-ltx-video'
+
+    def _make_vae(self, video_generation_model):
+&gt;       return ov_genai.AutoencoderKLLTXVideo(str(Path(video_generation_model) / "vae_decoder"), "CPU")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:
+E       Failed to open "CPU/config.json"
+
+tests/python_tests/test_video_generation.py:994: RuntimeError</failure></testcase><testcase classname="test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling" name="test_small_chunks_close_to_untiled" time="0.003"><failure message="RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:&#10;Failed to open &quot;CPU/config.json&quot;">self = &lt;test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling object at 0x7e6ad8b1e690&gt;
+video_generation_model = '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx-video/optimum-intel-internal-testing/tiny-random-ltx-video'
+
+    def test_small_chunks_close_to_untiled(self, video_generation_model):
+&gt;       vae = self._make_vae(video_generation_model)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/python_tests/test_video_generation.py:1064: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling object at 0x7e6ad8b1e690&gt;
+video_generation_model = '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx-video/optimum-intel-internal-testing/tiny-random-ltx-video'
+
+    def _make_vae(self, video_generation_model):
+&gt;       return ov_genai.AutoencoderKLLTXVideo(str(Path(video_generation_model) / "vae_decoder"), "CPU")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:
+E       Failed to open "CPU/config.json"
+
+tests/python_tests/test_video_generation.py:994: RuntimeError</failure></testcase><testcase classname="test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling" name="test_invalid_tile_sizes_raise" time="0.003"><failure message="RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:&#10;Failed to open &quot;CPU/config.json&quot;">self = &lt;test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling object at 0x7e6ad73d8c50&gt;
+video_generation_model = '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx-video/optimum-intel-internal-testing/tiny-random-ltx-video'
+
+    def test_invalid_tile_sizes_raise(self, video_generation_model):
+&gt;       vae = self._make_vae(video_generation_model)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/python_tests/test_video_generation.py:1080: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling object at 0x7e6ad73d8c50&gt;
+video_generation_model = '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx-video/optimum-intel-internal-testing/tiny-random-ltx-video'
+
+    def _make_vae(self, video_generation_model):
+&gt;       return ov_genai.AutoencoderKLLTXVideo(str(Path(video_generation_model) / "vae_decoder"), "CPU")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:
+E       Failed to open "CPU/config.json"
+
+tests/python_tests/test_video_generation.py:994: RuntimeError</failure></testcase><testcase classname="test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling" name="test_config_defaults" time="0.002" /><testcase classname="test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling" name="test_generate" time="1.145" /><testcase classname="test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling" name="test_generate_after_static_reshape_raises" time="1.295" /></testsuite></testsuites>

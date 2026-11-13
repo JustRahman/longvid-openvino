@@ -1,0 +1,20 @@
+[{"stream_name":"stderr","time":50.252005296,"data":"WARNING:torchao.kernel.intmm:Warning: Detected no triton, on systems without Triton certain kernels will not work\n"}
+,{"stream_name":"stderr","time":66.489296461,"data":"Flax classes are deprecated and will be removed in Diffusers v0.40.0. We recommend migrating to PyTorch classes or pinning your version of Diffusers.\n"}
+,{"stream_name":"stderr","time":66.49038622,"data":"Flax classes are deprecated and will be removed in Diffusers v0.40.0. We recommend migrating to PyTorch classes or pinning your version of Diffusers.\n"}
+,{"stream_name":"stdout","time":66.657888401,"data":"diffusers 0.39.0 torch 2.11.0+cpu\n"}
+,{"stream_name":"stderr","time":66.669971471,"data":"/usr/local/lib/python3.13/dist-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.\n"}
+,{"stream_name":"stderr","time":66.670017443,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":67.18504786,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":67.185098688,"data":"WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":157.090807547,"data":"frames 49 tile_sample_min_num_frames 16 stride 8\n"}
+,{"stream_name":"stdout","time":157.17848302,"data":"tiled vs untiled, same frame:      30.50 dB\n"}
+,{"stream_name":"stdout","time":157.178525209,"data":"tiled vs untiled, previous frame:  36.85 dB\n"}
+,{"stream_name":"stdout","time":157.203716509,"data":"per-frame best match (offset 0 or -1), frames 9..48: [0, 0, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]\n"}
+,{"stream_name":"stdout","time":189.251048348,"data":"with decoded[:, :, 1:] fix, same frame: 41.64 dB\n"}
+,{"stream_name":"stderr","time":195.020957398,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":195.021000783,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":195.411511766,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":195.411548015,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":196.472568171,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":198.374569423,"data":"[NbConvertApp] Writing 289076 bytes to __results__.html\n"}
+]

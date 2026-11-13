@@ -1,0 +1,167 @@
+{
+  "downloaded_files": {
+    "vae/config.json": 501,
+    "vae/diffusion_pytorch_model.safetensors": 1676798532
+  },
+  "vae_config": {
+    "latent_channels": 128,
+    "patch_size": 4,
+    "patch_size_t": 1,
+    "block_out_channels": [
+      128,
+      256,
+      512,
+      512
+    ],
+    "spatio_temporal_scaling": [
+      true,
+      true,
+      true,
+      false
+    ],
+    "encoder_causal": true,
+    "decoder_causal": false,
+    "timestep_conditioning": false,
+    "decoder_inject_noise": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "scaling_factor": 1.0
+  },
+  "vae_params_M": 419.19,
+  "compression": {
+    "spatial": 32,
+    "temporal": 8
+  },
+  "latents_mean_range": [
+    -0.597371518611908,
+    0.8754396438598633
+  ],
+  "latents_std_range": [
+    0.11339698731899261,
+    1.413599967956543
+  ],
+  "clip_source": "real video: HF dataset huggingface/documentation-images/diffusers/hiker.mp4 (source (720, 480) @ 8.0 fps), first 25 frames, center-cropped + Lanczos-resized to 512x320",
+  "converted_this_run": true,
+  "ir_files": {
+    "vae_decoder.bin": 955157720,
+    "vae_decoder.xml": 1420538,
+    "vae_encoder.bin": 721617832,
+    "vae_encoder.xml": 1363999
+  },
+  "ov_io": {
+    "encoder_in": "[1,3,?,?,?]",
+    "encoder_out": "[?,128,?,1..,1..]",
+    "decoder_in": "[1,128,?,?,?]",
+    "decoder_out": "[1,3,?,?,?]",
+    "inference_precision": "<Type: 'float32'>"
+  },
+  "shapes": {
+    "video_in": [
+      1,
+      3,
+      25,
+      320,
+      512
+    ],
+    "latents": [
+      1,
+      128,
+      4,
+      10,
+      16
+    ],
+    "pt_decoded": [
+      1,
+      3,
+      25,
+      320,
+      512
+    ],
+    "ov_decoded": [
+      1,
+      3,
+      25,
+      320,
+      512
+    ]
+  },
+  "latent_stats": {
+    "min": -4.200479507446289,
+    "max": 3.8578743934631348,
+    "mean": 3.509111775201745e-05,
+    "std": 0.35638296604156494
+  },
+  "ov_vs_pt_decode": {
+    "max_abs_diff_raw": 2.537667751312256e-05,
+    "mean_abs_diff_raw": 7.148722147576336e-07,
+    "psnr_db": 125.94569151486766,
+    "max_abs_diff_uint8": 1
+  },
+  "ov_vs_pt_encode": {
+    "max_abs_diff": 2.193450927734375e-05,
+    "mean_abs_diff": 7.341980676756066e-07
+  },
+  "pt_vs_original": {
+    "psnr_db": 35.92150721469966,
+    "ssim": 0.951781153678894
+  },
+  "ov_vs_original": {
+    "psnr_db": 35.92150904180984,
+    "ssim": 0.9517812132835388
+  },
+  "dynamic_shape_check": {
+    "video_in": [
+      1,
+      3,
+      9,
+      192,
+      256
+    ],
+    "latents": [
+      1,
+      128,
+      2,
+      6,
+      8
+    ],
+    "ov_decoded": [
+      1,
+      3,
+      9,
+      192,
+      256
+    ],
+    "decode_max_abs_diff_raw": 2.193450927734375e-05,
+    "decode_psnr_db": 125.48534326384848,
+    "encode_max_abs_diff": 9.775161743164062e-06
+  },
+  "peak_rss_gb": 7.54,
+  "timings_s": {
+    "download_or_cache_check": 0.32,
+    "pt_load": 0.02,
+    "convert_encoder": 49.98,
+    "convert_decoder": 54.51,
+    "ov_compile_encoder": 2.23,
+    "ov_compile_decoder": 1.8,
+    "pt_encode": 10.8,
+    "pt_decode": 10.65,
+    "ov_decode_first": 23.14,
+    "ov_decode": 53.51,
+    "ov_encode_first": 27.31
+  },
+  "versions": {
+    "python": "3.13.7",
+    "openvino": "2026.5.1-23845-452ed9862db",
+    "torch": "2.15.0",
+    "diffusers": "0.39.0",
+    "numpy": "2.4.6",
+    "machine": "arm64 / macOS-26.5-arm64-arm-64bit-Mach-O",
+    "cpu_threads": 12,
+    "ram_total_gb": 18.0
+  },
+  "run_time": "2026-11-11 18:56:33"
+}

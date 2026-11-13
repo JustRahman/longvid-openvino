@@ -1,0 +1,207 @@
+[{"stream_name":"stdout","time":0.769601036,"data":"[s8 04:33:01 +0:00:00] pip install openvino==2026.4.1 openvino-genai==2026.4.1.0\n"}
+,{"stream_name":"stdout","time":8.770027491,"data":"[s8 04:33:09 +0:00:08] pip install diffusers==0.39.0 huggingface_hub safetensors psutil scikit-image imageio imageio-ffmpeg matplotlib nncf\n"}
+,{"stream_name":"stdout","time":20.640655213,"data":"date: 2026-11-12 04:33:21\n"}
+,{"stream_name":"stdout","time":20.64068613,"data":"platform: Linux-6.18.55+-x86_64-with-glibc2.39\n"}
+,{"stream_name":"stdout","time":20.640690904,"data":"python: 3.13.18 (main, Oct 26 2026, 15:28:15) [GCC 13.3.0]\n"}
+,{"stream_name":"stdout","time":20.640695105,"data":"openvino: 2026.4.1\n"}
+,{"stream_name":"stdout","time":20.640698925,"data":"nncf: 3.4.0\n"}
+,{"stream_name":"stdout","time":20.64070243,"data":"torch: 2.11.0+cpu\n"}
+,{"stream_name":"stdout","time":20.640706518000002,"data":"diffusers: 0.39.0\n"}
+,{"stream_name":"stdout","time":20.640710186,"data":"numpy: 2.1.3\n"}
+,{"stream_name":"stdout","time":20.640713671,"data":"scikit-image: 0.25.2\n"}
+,{"stream_name":"stdout","time":20.640717553,"data":"psutil: 5.9.5\n"}
+,{"stream_name":"stdout","time":20.640720844,"data":"matplotlib: 3.10.0\n"}
+,{"stream_name":"stdout","time":20.640724306,"data":"cpus: 4; inference threads: all\n"}
+,{"stream_name":"stdout","time":20.640727853,"data":"RAM limit (min of RAM and cgroup): 30.0 GB; swap: 0.0 GB; available now: 30.38 GB; watchdog kill RSS: 28.5 GB\n"}
+,{"stream_name":"stdout","time":20.640731554,"data":"\n"}
+,{"stream_name":"stdout","time":20.640735071,"data":"--- lscpu ---\n"}
+,{"stream_name":"stdout","time":20.640738283,"data":"Architecture:                            x86_64\n"}
+,{"stream_name":"stdout","time":20.640741862,"data":"CPU op-mode(s):                          32-bit, 64-bit\n"}
+,{"stream_name":"stdout","time":20.64074571,"data":"Address sizes:                           46 bits physical, 48 bits virtual\n"}
+,{"stream_name":"stdout","time":20.640749264,"data":"Byte Order:                              Little Endian\n"}
+,{"stream_name":"stdout","time":20.640753119,"data":"CPU(s):                                  4\n"}
+,{"stream_name":"stdout","time":20.640756422,"data":"On-line CPU(s) list:                     0-3\n"}
+,{"stream_name":"stdout","time":20.640760176,"data":"Vendor ID:                               GenuineIntel\n"}
+,{"stream_name":"stdout","time":20.640763518,"data":"Model name:                              Intel(R) Xeon(R) CPU @ 2.20GHz\n"}
+,{"stream_name":"stdout","time":20.640766867,"data":"CPU family:                              6\n"}
+,{"stream_name":"stdout","time":20.640770088,"data":"Model:                                   79\n"}
+,{"stream_name":"stdout","time":20.640773783,"data":"Thread(s) per core:                      2\n"}
+,{"stream_name":"stdout","time":20.64077717,"data":"Core(s) per socket:                      2\n"}
+,{"stream_name":"stdout","time":20.640780534,"data":"Socket(s):                               1\n"}
+,{"stream_name":"stdout","time":20.640783792,"data":"Stepping:                                0\n"}
+,{"stream_name":"stdout","time":20.640787231,"data":"BogoMIPS:                                4399.99\n"}
+,{"stream_name":"stdout","time":20.640791979,"data":"Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap xsaveopt arat md_clear arch_capabilities\n"}
+,{"stream_name":"stdout","time":20.640811112,"data":"Hypervisor vendor:                       KVM\n"}
+,{"stream_name":"stdout","time":20.640815014,"data":"Virtualization type:                     full\n"}
+,{"stream_name":"stdout","time":20.640827216,"data":"L1d cache:                               64 KiB (2 instances)\n"}
+,{"stream_name":"stdout","time":20.640831345,"data":"L1i cache:                               64 KiB (2 instances)\n"}
+,{"stream_name":"stdout","time":20.640834858,"data":"L2 cache:                                512 KiB (2 instances)\n"}
+,{"stream_name":"stdout","time":20.640838034,"data":"L3 cache:                                55 MiB (1 instance)\n"}
+,{"stream_name":"stdout","time":20.640843205,"data":"NUMA node(s):                            1\n"}
+,{"stream_name":"stdout","time":20.64084703,"data":"NUMA node0 CPU(s):                       0-3\n"}
+,{"stream_name":"stdout","time":20.640850259,"data":"Vulnerability Gather data sampling:      Not affected\n"}
+,{"stream_name":"stdout","time":20.640853921,"data":"Vulnerability Ghostwrite:                Not affected\n"}
+,{"stream_name":"stdout","time":20.640857384,"data":"Vulnerability Indirect target selection: Mitigation; Aligned branch/return thunks\n"}
+,{"stream_name":"stdout","time":20.640860634,"data":"Vulnerability Itlb multihit:             Not affected\n"}
+,{"stream_name":"stdout","time":20.640864102,"data":"Vulnerability L1tf:                      Mitigation; PTE Inversion\n"}
+,{"stream_name":"stdout","time":20.640867574,"data":"Vulnerability Mds:                       Mitigation; Clear CPU buffers; SMT Host state unknown\n"}
+,{"stream_name":"stdout","time":20.64087128,"data":"Vulnerability Meltdown:                  Mitigation; PTI\n"}
+,{"stream_name":"stdout","time":20.640874782,"data":"Vulnerability Mmio stale data:           Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown\n"}
+,{"stream_name":"stdout","time":20.640878287,"data":"Vulnerability Old microcode:             Not affected\n"}
+,{"stream_name":"stdout","time":20.640881944,"data":"Vulnerability Reg file data sampling:    Not affected\n"}
+,{"stream_name":"stdout","time":20.640885382,"data":"Vulnerability Retbleed:                  Mitigation; IBRS\n"}
+,{"stream_name":"stdout","time":20.640888965,"data":"Vulnerability Spec rstack overflow:      Not affected\n"}
+,{"stream_name":"stdout","time":20.640892389,"data":"Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\n"}
+,{"stream_name":"stdout","time":20.640896424,"data":"Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\n"}
+,{"stream_name":"stdout","time":20.640899908,"data":"Vulnerability Spectre v2:                Mitigation; IBRS; IBPB conditional; STIBP conditional; RSB filling; PBRSB-eIBRS Not affected; BHI SW loop, KVM SW loop\n"}
+,{"stream_name":"stdout","time":20.640903829,"data":"Vulnerability Srbds:                     Not affected\n"}
+,{"stream_name":"stdout","time":20.64090747,"data":"Vulnerability Tsa:                       Not affected\n"}
+,{"stream_name":"stdout","time":20.640911691,"data":"Vulnerability Tsx async abort:           Mitigation; Clear CPU buffers; SMT Host state unknown\n"}
+,{"stream_name":"stdout","time":20.640915573,"data":"Vulnerability Vmscape:                   Not affected\n"}
+,{"stream_name":"stdout","time":20.640919088,"data":"\n"}
+,{"stream_name":"stdout","time":20.640922542,"data":"--- free -h ---\n"}
+,{"stream_name":"stdout","time":20.640926187,"data":"total        used        free      shared  buff/cache   available\n"}
+,{"stream_name":"stdout","time":20.640935692,"data":"Mem:            31Gi       991Mi        26Gi       1.2Mi       4.7Gi        30Gi\n"}
+,{"stream_name":"stdout","time":20.640939829,"data":"Swap:             0B          0B          0B\n"}
+,{"stream_name":"stdout","time":20.640943733,"data":"\n"}
+,{"stream_name":"stderr","time":21.741378867999998,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":22.890587979,"data":"[s8 04:33:24 +0:00:22] downloading Lightricks/LTX-Video vae/ ...\n"}
+,{"stream_name":"stderr","time":26.955599068,"data":"\rFetching 2 files:   0%|          | 0/2 [00:00\u003c?, ?it/s]\rFetching 2 files:  50%|█████     | 1/2 [00:00\u003c00:00,  4.48it/s]\rFetching 2 files: 100%|██████████| 2/2 [00:03\u003c00:00,  2.22s/it]\rFetching 2 files: 100%|██████████| 2/2 [00:03\u003c00:00,  1.92s/it]\n"}
+,{"stream_name":"stdout","time":26.956060704,"data":"[s8 04:33:28 +0:00:26] setup convert_real_native ...\n"}
+,{"stream_name":"stdout","time":100.229309494,"data":"[s8 04:34:41 +0:01:39] setup convert_real_native: ok  | peak RSS 1.76 GB, 73.27 s\n"}
+,{"stream_name":"stdout","time":100.229975825,"data":"[s8 04:34:41 +0:01:39] setup latent_stats ...\n"}
+,{"stream_name":"stdout","time":100.536920026,"data":"[s8 04:34:41 +0:01:39] setup latent_stats: ok  | peak RSS 0.032 GB, 0.31 s\n"}
+,{"stream_name":"stdout","time":100.537649449,"data":"[s8 04:34:41 +0:01:39] setup encode_768x512_49f ...\n"}
+,{"stream_name":"stdout","time":247.812074297,"data":"[s8 04:37:09 +0:04:07] setup encode_768x512_49f: ok  | peak RSS 4.34 GB, 147.27 s\n"}
+,{"stream_name":"stdout","time":247.812711005,"data":"[s8 04:37:09 +0:04:07] mem_pt_inference_mode_768x512_49f ...\n"}
+,{"stream_name":"stdout","time":398.117441888,"data":"[s8 04:39:39 +0:06:37] mem_pt_inference_mode_768x512_49f: ok  | peak RSS 4.586 GB, decode 137.22 s\n"}
+,{"stream_name":"stdout","time":398.118372,"data":"[s8 04:39:39 +0:06:37] mem_ov_dynamic_768x512_49f ...\n"}
+,{"stream_name":"stdout","time":552.645381766,"data":"[s8 04:42:13 +0:09:11] mem_ov_dynamic_768x512_49f: ok  | peak RSS 5.89 GB, decode 152.75 s\n"}
+,{"stream_name":"stdout","time":552.647182331,"data":"[s8 04:42:13 +0:09:11] mem_ov_static_768x512_49f ...\n"}
+,{"stream_name":"stdout","time":697.985947193,"data":"[s8 04:44:39 +0:11:37] mem_ov_static_768x512_49f: ok  | peak RSS 4.703 GB, decode 142.85 s\n"}
+,{"stream_name":"stdout","time":697.987070591,"data":"[s8 04:44:39 +0:11:37] mem_ov_dynamic_read_768x512_49f ...\n"}
+,{"stream_name":"stdout","time":861.70505109,"data":"[s8 04:47:22 +0:14:20] mem_ov_dynamic_read_768x512_49f: ok  | peak RSS 5.89 GB, decode 161.58 s\n"}
+,{"stream_name":"stdout","time":861.706266304,"data":"[s8 04:47:22 +0:14:20] mem_ov_streams1_768x512_49f ...\n"}
+,{"stream_name":"stdout","time":1011.488959952,"data":"[s8 04:49:52 +0:16:50] mem_ov_streams1_768x512_49f: ok  | peak RSS 5.89 GB, decode 147.9 s\n"}
+,{"stream_name":"stdout","time":1011.490147189,"data":"[s8 04:49:52 +0:16:50] mem_ov_latency_768x512_49f ...\n"}
+,{"stream_name":"stdout","time":1160.592881317,"data":"[s8 04:52:21 +0:19:19] mem_ov_latency_768x512_49f: ok  | peak RSS 5.89 GB, decode 147.28 s\n"}
+,{"stream_name":"stdout","time":1160.594223296,"data":"[s8 04:52:21 +0:19:19] mem_ov_throughput_768x512_49f ...\n"}
+,{"stream_name":"stdout","time":1458.419449325,"data":"[s8 04:57:19 +0:24:17] mem_ov_throughput_768x512_49f: ok  | peak RSS 5.918 GB, decode 295.82 s\n"}
+,{"stream_name":"stdout","time":1458.421323089,"data":"[s8 04:57:19 +0:24:17] mem_ov_mmap_off_768x512_49f ...\n"}
+,{"stream_name":"stdout","time":1610.926192838,"data":"[s8 04:59:52 +0:26:50] mem_ov_mmap_off_768x512_49f: ok  | peak RSS 5.889 GB, decode 150.01 s\n"}
+,{"stream_name":"stdout","time":1610.927636039,"data":"[s8 04:59:52 +0:26:50] mem_ov_mmap_on_768x512_49f ...\n"}
+,{"stream_name":"stdout","time":1766.255013435,"data":"[s8 05:02:27 +0:29:25] mem_ov_mmap_on_768x512_49f: ok  | peak RSS 5.89 GB, decode 153.53 s\n"}
+,{"stream_name":"stdout","time":1766.256292658,"data":"[s8 05:02:27 +0:29:25] mem_ov_cache0_768x512_49f ...\n"}
+,{"stream_name":"stdout","time":1917.187076629,"data":"[s8 05:04:58 +0:31:56] mem_ov_cache0_768x512_49f: ok  | peak RSS 5.891 GB, decode 149.11 s\n"}
+,{"stream_name":"stdout","time":1917.188541563,"data":"[s8 05:04:58 +0:31:56] mem_ov_no_precision_hint_768x512_49f ...\n"}
+,{"stream_name":"stdout","time":2067.458437788,"data":"[s8 05:07:28 +0:34:26] mem_ov_no_precision_hint_768x512_49f: ok  | peak RSS 5.89 GB, decode 148.43 s\n"}
+,{"stream_name":"stdout","time":2067.460396804,"data":"[s8 05:07:28 +0:34:26] mem_ov_static_streams1_cache0_768x512_49f ...\n"}
+,{"stream_name":"stdout","time":2215.953533256,"data":"[s8 05:09:57 +0:36:55] mem_ov_static_streams1_cache0_768x512_49f: ok  | peak RSS 4.704 GB, decode 146.18 s\n"}
+,{"stream_name":"stdout","time":2215.955177893,"data":"[s8 05:09:57 +0:36:55] mem_ov_dynamic_2infers_768x512_49f ...\n"}
+,{"stream_name":"stdout","time":2510.205593994,"data":"[s8 05:14:51 +0:41:49] mem_ov_dynamic_2infers_768x512_49f: ok  | peak RSS 5.89 GB, decode 148.27 s\n"}
+,{"stream_name":"stdout","time":2510.207336102,"data":"[s8 05:14:51 +0:41:49] mem_pt_no_grad_768x512_49f ...\n"}
+,{"stream_name":"stdout","time":2677.190296125,"data":"[s8 05:17:38 +0:44:36] mem_pt_no_grad_768x512_49f: ok  | peak RSS 4.584 GB, decode 151.19 s\n"}
+,{"stream_name":"stdout","time":2677.192344354,"data":"[s8 05:17:38 +0:44:36] setup irstats_768x512_49f ...\n"}
+,{"stream_name":"stdout","time":2677.955849356,"data":"[s8 05:17:39 +0:44:37] setup irstats_768x512_49f: ok  | peak RSS 0.079 GB, 0.76 s\n"}
+,{"stream_name":"stdout","time":2677.959146994,"data":"[s8 05:17:39 +0:44:37] mem_pt_inference_mode_768x512_25f ...\n"}
+,{"stream_name":"stdout","time":2763.766624639,"data":"[s8 05:19:04 +0:46:02] mem_pt_inference_mode_768x512_25f: ok  | peak RSS 3.13 GB, decode 72.07 s\n"}
+,{"stream_name":"stdout","time":2763.768579896,"data":"[s8 05:19:04 +0:46:03] mem_ov_dynamic_768x512_25f ...\n"}
+,{"stream_name":"stdout","time":2842.82533208,"data":"[s8 05:20:24 +0:47:22] mem_ov_dynamic_768x512_25f: ok  | peak RSS 3.99 GB, decode 77.49 s\n"}
+,{"stream_name":"stdout","time":2842.827415603,"data":"[s8 05:20:24 +0:47:22] mem_ov_static_768x512_25f ...\n"}
+,{"stream_name":"stdout","time":2917.367229134,"data":"[s8 05:21:38 +0:48:36] mem_ov_static_768x512_25f: ok  | peak RSS 3.365 GB, decode 72.51 s\n"}
+,{"stream_name":"stdout","time":2917.369367542,"data":"[s8 05:21:38 +0:48:36] mem_ov_dynamic_read_768x512_25f ...\n"}
+,{"stream_name":"stdout","time":2994.813701252,"data":"[s8 05:22:56 +0:49:54] mem_ov_dynamic_read_768x512_25f: ok  | peak RSS 3.991 GB, decode 75.85 s\n"}
+,{"stream_name":"stdout","time":2994.815875357,"data":"[s8 05:22:56 +0:49:54] mem_ov_streams1_768x512_25f ...\n"}
+,{"stream_name":"stdout","time":3072.171661573,"data":"[s8 05:24:13 +0:51:11] mem_ov_streams1_768x512_25f: ok  | peak RSS 3.988 GB, decode 75.8 s\n"}
+,{"stream_name":"stdout","time":3072.173729979,"data":"[s8 05:24:13 +0:51:11] mem_ov_latency_768x512_25f ...\n"}
+,{"stream_name":"stdout","time":3149.528087691,"data":"[s8 05:25:30 +0:52:28] mem_ov_latency_768x512_25f: ok  | peak RSS 3.988 GB, decode 75.77 s\n"}
+,{"stream_name":"stdout","time":3149.530425544,"data":"[s8 05:25:30 +0:52:28] mem_ov_throughput_768x512_25f ...\n"}
+,{"stream_name":"stdout","time":3313.474247824,"data":"[s8 05:28:14 +0:55:12] mem_ov_throughput_768x512_25f: ok  | peak RSS 4.018 GB, decode 162.09 s\n"}
+,{"stream_name":"stdout","time":3313.476665094,"data":"[s8 05:28:14 +0:55:12] mem_ov_mmap_off_768x512_25f ...\n"}
+,{"stream_name":"stdout","time":3391.703595856,"data":"[s8 05:29:32 +0:56:30] mem_ov_mmap_off_768x512_25f: ok  | peak RSS 3.99 GB, decode 75.99 s\n"}
+,{"stream_name":"stdout","time":3391.705955332,"data":"[s8 05:29:32 +0:56:30] mem_ov_mmap_on_768x512_25f ...\n"}
+,{"stream_name":"stdout","time":3468.856399924,"data":"[s8 05:30:50 +0:57:48] mem_ov_mmap_on_768x512_25f: ok  | peak RSS 3.99 GB, decode 75.56 s\n"}
+,{"stream_name":"stdout","time":3468.858977638,"data":"[s8 05:30:50 +0:57:48] mem_ov_cache0_768x512_25f ...\n"}
+,{"stream_name":"stdout","time":3546.316086488,"data":"[s8 05:32:07 +0:59:05] mem_ov_cache0_768x512_25f: ok  | peak RSS 3.99 GB, decode 75.89 s\n"}
+,{"stream_name":"stdout","time":3546.318587273,"data":"[s8 05:32:07 +0:59:05] mem_ov_no_precision_hint_768x512_25f ...\n"}
+,{"stream_name":"stdout","time":3623.105062792,"data":"[s8 05:33:24 +1:00:22] mem_ov_no_precision_hint_768x512_25f: ok  | peak RSS 3.988 GB, decode 75.25 s\n"}
+,{"stream_name":"stdout","time":3623.107995769,"data":"[s8 05:33:24 +1:00:22] mem_ov_static_streams1_cache0_768x512_25f ...\n"}
+,{"stream_name":"stdout","time":3697.887113106,"data":"[s8 05:34:39 +1:01:37] mem_ov_static_streams1_cache0_768x512_25f: ok  | peak RSS 3.366 GB, decode 72.74 s\n"}
+,{"stream_name":"stdout","time":3697.889793155,"data":"[s8 05:34:39 +1:01:37] mem_ov_dynamic_2infers_768x512_25f ...\n"}
+,{"stream_name":"stdout","time":3851.524041111,"data":"[s8 05:37:12 +1:04:10] mem_ov_dynamic_2infers_768x512_25f: ok  | peak RSS 3.988 GB, decode 77.69 s\n"}
+,{"stream_name":"stdout","time":3851.5266893,"data":"[s8 05:37:12 +1:04:10] mem_pt_no_grad_768x512_25f ...\n"}
+,{"stream_name":"stdout","time":3935.95070385,"data":"[s8 05:38:37 +1:05:35] mem_pt_no_grad_768x512_25f: ok  | peak RSS 3.068 GB, decode 70.99 s\n"}
+,{"stream_name":"stdout","time":3935.953476239,"data":"[s8 05:38:37 +1:05:35] setup irstats_768x512_25f ...\n"}
+,{"stream_name":"stdout","time":3936.664703255,"data":"[s8 05:38:37 +1:05:35] setup irstats_768x512_25f: ok  | peak RSS 0.079 GB, 0.71 s\n"}
+,{"stream_name":"stdout","time":3936.669768328,"data":"[s8 05:38:37 +1:05:35] setup encode_512x320_49f ...\n"}
+,{"stream_name":"stdout","time":4004.354661862,"data":"[s8 05:39:45 +1:06:43] setup encode_512x320_49f: ok  | peak RSS 2.131 GB, 67.68 s\n"}
+,{"stream_name":"stdout","time":4004.357662337,"data":"[s8 05:39:45 +1:06:43] build_fp32 ...\n"}
+,{"stream_name":"stdout","time":4004.918463314,"data":"[s8 05:39:46 +1:06:44] build_fp32: ok  | peak RSS 0.078 GB, decode None s\n"}
+,{"stream_name":"stdout","time":4004.921303199,"data":"[s8 05:39:46 +1:06:44] dec_fp32_512x320_49f_untiled ...\n"}
+,{"stream_name":"stdout","time":4065.92460783,"data":"[s8 05:40:47 +1:07:45] dec_fp32_512x320_49f_untiled: ok  | peak RSS 3.565 GB, decode 59.45 s\n"}
+,{"stream_name":"stdout","time":4065.927721727,"data":"[s8 05:40:47 +1:07:45] dec_fp32_512x320_49f_temporal ...\n"}
+,{"stream_name":"stdout","time":4182.403989261,"data":"[s8 05:42:43 +1:09:41] dec_fp32_512x320_49f_temporal: ok  | peak RSS 2.663 GB, decode 114.99 s\n"}
+,{"stream_name":"stdout","time":4187.125108577,"data":"[s8 05:42:48 +1:09:46] metrics_vs_fp32_untiled_dec_fp32_512x320_49f_temporal: ok  | PSNR 43.24439017892093 dB, SSIM 0.9947709660140835\n"}
+,{"stream_name":"stdout","time":4187.12891715,"data":"[s8 05:42:48 +1:09:46] dec_fp32_768x512_49f_untiled ...\n"}
+,{"stream_name":"stdout","time":4335.238173196,"data":"[s8 05:45:16 +1:12:14] dec_fp32_768x512_49f_untiled: ok  | peak RSS 5.889 GB, decode 146.36 s\n"}
+,{"stream_name":"stdout","time":4335.241286867,"data":"[s8 05:45:16 +1:12:14] dec_fp32_768x512_49f_temporal ...\n"}
+,{"stream_name":"stdout","time":4616.791608449,"data":"[s8 05:49:57 +1:16:56] dec_fp32_768x512_49f_temporal: ok  | peak RSS 3.681 GB, decode 279.99 s\n"}
+,{"stream_name":"stdout","time":4626.440294761,"data":"[s8 05:50:07 +1:17:05] metrics_vs_fp32_untiled_dec_fp32_768x512_49f_temporal: ok  | PSNR 43.98371171663828 dB, SSIM 0.9956988570641498\n"}
+,{"stream_name":"stdout","time":4626.444015405,"data":"[s8 05:50:07 +1:17:05] build_fp16 ...\n"}
+,{"stream_name":"stdout","time":4628.018609555,"data":"[s8 05:50:09 +1:17:07] build_fp16: ok  | peak RSS 1.086 GB, decode None s\n"}
+,{"stream_name":"stdout","time":4628.022060707,"data":"[s8 05:50:09 +1:17:07] dec_fp16_512x320_49f_untiled ...\n"}
+,{"stream_name":"stdout","time":4689.93015672,"data":"[s8 05:51:11 +1:18:09] dec_fp16_512x320_49f_untiled: ok  | peak RSS 3.121 GB, decode 60.4 s\n"}
+,{"stream_name":"stdout","time":4694.600555095,"data":"[s8 05:51:15 +1:18:13] metrics_vs_fp32_same_mode_dec_fp16_512x320_49f_untiled: ok  | PSNR 86.38406932798446 dB, SSIM 0.9999997482007864\n"}
+,{"stream_name":"stdout","time":4694.609045321,"data":"[s8 05:51:15 +1:18:13] dec_fp16_512x320_49f_temporal ...\n"}
+,{"stream_name":"stdout","time":4813.575716309,"data":"[s8 05:53:14 +1:20:12] dec_fp16_512x320_49f_temporal: ok  | peak RSS 2.22 GB, decode 117.59 s\n"}
+,{"stream_name":"stdout","time":4818.249638258,"data":"[s8 05:53:19 +1:20:17] metrics_vs_fp32_same_mode_dec_fp16_512x320_49f_temporal: ok  | PSNR 86.39218436603196 dB, SSIM 0.9999997640142635\n"}
+,{"stream_name":"stdout","time":4823.027883814,"data":"[s8 05:53:24 +1:20:22] metrics_vs_fp32_untiled_dec_fp16_512x320_49f_temporal: ok  | PSNR 43.24514972053723 dB, SSIM 0.9947738404176674\n"}
+,{"stream_name":"stdout","time":4823.035520771,"data":"[s8 05:53:24 +1:20:22] dec_fp16_768x512_49f_untiled ...\n"}
+,{"stream_name":"stdout","time":4978.512830354,"data":"[s8 05:55:59 +1:22:57] dec_fp16_768x512_49f_untiled: ok  | peak RSS 5.444 GB, decode 153.7 s\n"}
+,{"stream_name":"stdout","time":4988.767776187,"data":"[s8 05:56:09 +1:23:07] metrics_vs_fp32_same_mode_dec_fp16_768x512_49f_untiled: ok  | PSNR 86.31613851597918 dB, SSIM 0.9999997579321569\n"}
+,{"stream_name":"stdout","time":4988.782446631,"data":"[s8 05:56:09 +1:23:08] dec_fp16_768x512_49f_temporal ...\n"}
+,{"stream_name":"stdout","time":5284.034883952,"data":"[s8 06:01:05 +1:28:03] dec_fp16_768x512_49f_temporal: ok  | peak RSS 3.237 GB, decode 293.65 s\n"}
+,{"stream_name":"stdout","time":5294.656480643,"data":"[s8 06:01:15 +1:28:13] metrics_vs_fp32_same_mode_dec_fp16_768x512_49f_temporal: ok  | PSNR 86.37323057052866 dB, SSIM 0.9999997725292128\n"}
+,{"stream_name":"stdout","time":5304.914766216,"data":"[s8 06:01:26 +1:28:24] metrics_vs_fp32_untiled_dec_fp16_768x512_49f_temporal: ok  | PSNR 43.9837676948423 dB, SSIM 0.9957008775399656\n"}
+,{"stream_name":"stdout","time":5304.92945975,"data":"[s8 06:01:26 +1:28:24] build_int8w ...\n"}
+,{"stream_name":"stdout","time":5317.423690125,"data":"[s8 06:01:38 +1:28:36] build_int8w: ok  | peak RSS 1.455 GB, decode None s\n"}
+,{"stream_name":"stdout","time":5317.429011237,"data":"[s8 06:01:38 +1:28:36] dec_int8w_512x320_49f_untiled ...\n"}
+,{"stream_name":"stdout","time":5385.625740604,"data":"[s8 06:02:46 +1:29:44] dec_int8w_512x320_49f_untiled: ok  | peak RSS 3.638 GB, decode 62.81 s\n"}
+,{"stream_name":"stdout","time":5390.403648562,"data":"[s8 06:02:51 +1:29:49] metrics_vs_fp32_same_mode_dec_int8w_512x320_49f_untiled: ok  | PSNR 52.84357621863087 dB, SSIM 0.9984863692400406\n"}
+,{"stream_name":"stdout","time":5390.412103698,"data":"[s8 06:02:51 +1:29:49] dec_int8w_512x320_49f_temporal ...\n"}
+,{"stream_name":"stdout","time":5512.237563061,"data":"[s8 06:04:53 +1:31:51] dec_int8w_512x320_49f_temporal: ok  | peak RSS 2.716 GB, decode 116.68 s\n"}
+,{"stream_name":"stdout","time":5516.807274424,"data":"[s8 06:04:58 +1:31:56] metrics_vs_fp32_same_mode_dec_int8w_512x320_49f_temporal: ok  | PSNR 53.04686175505914 dB, SSIM 0.998501789813139\n"}
+,{"stream_name":"stdout","time":5521.484782535,"data":"[s8 06:05:02 +1:32:00] metrics_vs_fp32_untiled_dec_int8w_512x320_49f_temporal: ok  | PSNR 42.98295406931438 dB, SSIM 0.9934064587768243\n"}
+,{"stream_name":"stdout","time":5521.49322862,"data":"[s8 06:05:02 +1:32:00] dec_int8w_768x512_49f_untiled ...\n"}
+,{"stream_name":"stdout","time":5675.002687081,"data":"[s8 06:07:36 +1:34:34] dec_int8w_768x512_49f_untiled: ok  | peak RSS 5.908 GB, decode 148.09 s\n"}
+,{"stream_name":"stdout","time":5684.904814549,"data":"[s8 06:07:46 +1:34:44] metrics_vs_fp32_same_mode_dec_int8w_768x512_49f_untiled: ok  | PSNR 53.20643611729829 dB, SSIM 0.9984934524613984\n"}
+,{"stream_name":"stdout","time":5684.919768764,"data":"[s8 06:07:46 +1:34:44] dec_int8w_768x512_49f_temporal ...\n"}
+,{"stream_name":"stdout","time":5976.544753657,"data":"[s8 06:12:37 +1:39:35] dec_int8w_768x512_49f_temporal: ok  | peak RSS 3.765 GB, decode 286.3 s\n"}
+,{"stream_name":"stdout","time":5986.961278032,"data":"[s8 06:12:48 +1:39:46] metrics_vs_fp32_same_mode_dec_int8w_768x512_49f_temporal: ok  | PSNR 53.48893366179734 dB, SSIM 0.9985078646212208\n"}
+,{"stream_name":"stdout","time":5997.11220119,"data":"[s8 06:12:58 +1:39:56] metrics_vs_fp32_untiled_dec_int8w_768x512_49f_temporal: ok  | PSNR 43.701925879665694 dB, SSIM 0.9943017533847264\n"}
+,{"stream_name":"stdout","time":5997.127083408,"data":"[s8 06:12:58 +1:39:56] setup encode_384x256_161f ...\n"}
+,{"stream_name":"stdout","time":6119.795706832,"data":"[s8 06:15:00 +1:41:59] setup encode_384x256_161f: ok  | peak RSS 3.628 GB, 122.67 s\n"}
+,{"stream_name":"stdout","time":6119.801144694,"data":"[s8 06:15:00 +1:41:59] build_ptq ...\n"}
+,{"stream_name":"stdout","time":6735.718438712,"data":"[s8 06:25:16 +1:52:14] build_ptq: ok  | peak RSS 5.119 GB, decode None s\n"}
+,{"stream_name":"stdout","time":6735.72362402,"data":"[s8 06:25:16 +1:52:14] dec_ptq_512x320_49f_untiled ...\n"}
+,{"stream_name":"stdout","time":6777.515990718,"data":"[s8 06:25:58 +1:52:56] dec_ptq_512x320_49f_untiled: ok  | peak RSS 1.911 GB, decode 38.76 s\n"}
+,{"stream_name":"stdout","time":6782.392815038,"data":"[s8 06:26:03 +1:53:01] metrics_vs_fp32_same_mode_dec_ptq_512x320_49f_untiled: ok  | PSNR 37.34471028887632 dB, SSIM 0.9695499052806776\n"}
+,{"stream_name":"stdout","time":6782.401869344,"data":"[s8 06:26:03 +1:53:01] dec_ptq_512x320_49f_temporal ...\n"}
+,{"stream_name":"stdout","time":6859.253813844,"data":"[s8 06:27:20 +1:54:18] dec_ptq_512x320_49f_temporal: ok  | peak RSS 1.226 GB, decode 73.9 s\n"}
+,{"stream_name":"stdout","time":6864.081282197,"data":"[s8 06:27:25 +1:54:23] metrics_vs_fp32_same_mode_dec_ptq_512x320_49f_temporal: ok  | PSNR 38.11070376818117 dB, SSIM 0.9748465041725003\n"}
+,{"stream_name":"stdout","time":6868.90442821,"data":"[s8 06:27:30 +1:54:28] metrics_vs_fp32_untiled_dec_ptq_512x320_49f_temporal: ok  | PSNR 36.76023881709847 dB, SSIM 0.9693610765496079\n"}
+,{"stream_name":"stdout","time":6868.913837981,"data":"[s8 06:27:30 +1:54:28] dec_ptq_768x512_49f_untiled ...\n"}
+,{"stream_name":"stdout","time":6967.078209083,"data":"[s8 06:29:08 +1:56:06] dec_ptq_768x512_49f_untiled: ok  | peak RSS 3.71 GB, decode 95.01 s\n"}
+,{"stream_name":"stdout","time":6977.133049543,"data":"[s8 06:29:18 +1:56:16] metrics_vs_fp32_same_mode_dec_ptq_768x512_49f_untiled: ok  | PSNR 37.048905016905245 dB, SSIM 0.9700993080528415\n"}
+,{"stream_name":"stdout","time":6977.147673615,"data":"[s8 06:29:18 +1:56:16] dec_ptq_768x512_49f_temporal ...\n"}
+,{"stream_name":"stdout","time":7156.125974723,"data":"[s8 06:32:17 +1:59:15] dec_ptq_768x512_49f_temporal: ok  | peak RSS 2.066 GB, decode 176.01 s\n"}
+,{"stream_name":"stdout","time":7166.024601155,"data":"[s8 06:32:27 +1:59:25] metrics_vs_fp32_same_mode_dec_ptq_768x512_49f_temporal: ok  | PSNR 37.82597709107345 dB, SSIM 0.9751181140237924\n"}
+,{"stream_name":"stdout","time":7176.228617186,"data":"[s8 06:32:37 +1:59:35] metrics_vs_fp32_untiled_dec_ptq_768x512_49f_temporal: ok  | PSNR 36.653099340749556 dB, SSIM 0.9703025976005866\n"}
+,{"stream_name":"stdout","time":7178.045289445,"data":"[s8 06:32:39 +1:59:37] outputs in /kaggle/working: s8b_env.txt, s8b_int8_variants.png, s8b_memory_variants.png, s8b_report.md, s8b_results.csv, s8b_results.json\n"}
+,{"stream_name":"stderr","time":7180.945904722,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":7180.945947505,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":7181.30628725,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":7181.306325252,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":7182.325208029,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":7183.706292272,"data":"[NbConvertApp] Writing 527579 bytes to __results__.html\n"}
+]

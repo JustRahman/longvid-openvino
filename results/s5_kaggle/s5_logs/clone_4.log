@@ -1,0 +1,5 @@
+Submodule 'thirdparty/openvino_tokenizers' (https://github.com/openvinotoolkit/openvino_tokenizers.git) registered for path 'thirdparty/openvino_tokenizers'
+Cloning into '/tmp/s5_work/openvino.genai/thirdparty/openvino_tokenizers'...
+From https://github.com/openvinotoolkit/openvino_tokenizers
+ * branch            56bb86d9e53c371502a2ac4c1836f642cdce83fa -> FETCH_HEAD
+Submodule path 'thirdparty/openvino_tokenizers': checked out '56bb86d9e53c371502a2ac4c1836f642cdce83fa'

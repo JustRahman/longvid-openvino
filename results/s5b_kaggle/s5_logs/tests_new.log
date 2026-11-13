@@ -1,0 +1,47 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.1.1, pluggy-1.7.0 -- /usr/bin/python3
+rootdir: /tmp/s5_work/openvino.genai/tests/python_tests
+configfile: pytest.ini
+plugins: anyio-4.15.1, langsmith-0.14.12, platformdirs-4.13.5, typeguard-4.6.0
+collecting ... collected 138 items / 126 deselected / 12 selected
+
+tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_ltx2_rejected[video_generation_model=tiny-random-ltx2] PASSED [  8%]
+tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_tiling_off_matches_default PASSED [ 16%]
+tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_chunk_not_smaller_than_clip_matches_untiled PASSED [ 25%]
+tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_small_chunks_match_reference[chunk=2-step=1] PASSED [ 33%]
+tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_small_chunks_match_reference[chunk=1-step=1] PASSED [ 41%]
+tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_small_chunks_match_reference[chunk=3-step=1] PASSED [ 50%]
+tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_small_chunks_match_reference[chunk=2-step=2] PASSED [ 58%]
+tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_small_chunks_close_to_untiled PASSED [ 66%]
+tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_invalid_tile_sizes_raise PASSED [ 75%]
+tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_config_defaults PASSED [ 83%]
+tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_generate PASSED [ 91%]
+tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_generate_after_static_reshape_raises PASSED [100%]
+
+=============================== warnings summary ===============================
+../../../usr/lib/python3.13/multiprocessing/popen_fork.py:73
+  /usr/lib/python3.13/multiprocessing/popen_fork.py:73: DeprecationWarning: This process (pid=2394) is multi-threaded, use of fork() may lead to deadlocks in the child.
+    self.pid = os.fork()
+
+../../../usr/local/lib/python3.13/dist-packages/torch/jit/_script.py:1488
+../../../usr/local/lib/python3.13/dist-packages/torch/jit/_script.py:1488
+  /usr/local/lib/python3.13/dist-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+------------- generated xml file: /kaggle/working/s5_tests_new.xml -------------
+=========================== short test summary info ============================
+PASSED tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_ltx2_rejected[video_generation_model=tiny-random-ltx2]
+PASSED tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_tiling_off_matches_default
+PASSED tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_chunk_not_smaller_than_clip_matches_untiled
+PASSED tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_small_chunks_match_reference[chunk=2-step=1]
+PASSED tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_small_chunks_match_reference[chunk=1-step=1]
+PASSED tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_small_chunks_match_reference[chunk=3-step=1]
+PASSED tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_small_chunks_match_reference[chunk=2-step=2]
+PASSED tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_small_chunks_close_to_untiled
+PASSED tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_invalid_tile_sizes_raise
+PASSED tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_config_defaults
+PASSED tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_generate
+PASSED tests/python_tests/test_video_generation.py::TestAutoEncoderKLLTXVideoTemporalTiling::test_generate_after_static_reshape_raises
+========== 12 passed, 126 deselected, 3 warnings in 83.72s (0:01:23) ===========

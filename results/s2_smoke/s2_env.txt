@@ -1,0 +1,17 @@
+date: 2026-11-11 19:22:58
+platform: macOS-26.5-arm64-arm-64bit-Mach-O
+python: 3.13.7 (main, Aug 14 2025, 11:12:11) [Clang 16.0.0 (clang-1600.0.26.6)]
+openvino: 2026.5.1.dev20261111
+openvino-genai: 2026.5.1.0.dev20261111
+torch: 2.15.0
+diffusers: 0.39.0
+numpy: 2.4.6
+psutil: 7.2.2
+pandas: 3.1.1
+matplotlib: 3.11.2
+nproc: not available (FileNotFoundError(2, 'No such file or directory')) (os.cpu_count 12)
+RAM total: 18.0 GB; usable limit (min of RAM and cgroup): 18.0 GB; available now: 6.22 GB; swap total: 4.0 GB
+watchdog kill RSS: 3.7 GB; inference threads requested: 6
+
+--- lscpu ---
+not available (FileNotFoundError(2, 'No such file or directory'))

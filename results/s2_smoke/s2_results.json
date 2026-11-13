@@ -1,0 +1,296 @@
+{
+  "smoke": true,
+  "conv3d_as_2d": true,
+  "started": "2026-11-11 19:22:58",
+  "cpu_model": "arm",
+  "nproc": 12,
+  "threads_requested": 6,
+  "ram_total_gb": 18.0,
+  "mem_limit_gb": 18.0,
+  "swap_total_gb": 4.0,
+  "kill_rss_gb": 3.7,
+  "run_timeout_s": 150,
+  "budget_s": 540,
+  "sample_interval_s": 0.05,
+  "versions": {
+    "python": "3.13.7",
+    "openvino": "2026.5.1.dev20261111",
+    "openvino-genai": "2026.5.1.0.dev20261111",
+    "torch": "2.15.0",
+    "diffusers": "0.39.0",
+    "numpy": "2.4.6",
+    "psutil": "7.2.2",
+    "pandas": "3.1.1",
+    "matplotlib": "3.11.2"
+  },
+  "tiny_vae": true,
+  "convert": {
+    "status": "ok",
+    "detail": "",
+    "peak_rss_gb": 0.935,
+    "wall_s": 7.15,
+    "peak_swap_delta_gb": 0.0,
+    "min_sys_avail_gb": 5.8,
+    "rss_at_phase_gb": {
+      "load": 0.207,
+      "reference": 0.467,
+      "rewrite": 0.518,
+      "convert": 0.524,
+      "done": 0.807
+    },
+    "conv3d_rewritten_as_2d": 45,
+    "convert_s": 2.89,
+    "ir_bytes": 15781144,
+    "decoder_in": "[1,128,?,?,?]",
+    "decoder_out": "[1,3,?,?,?]",
+    "check_latent_shape": [
+      1,
+      128,
+      2,
+      4,
+      6
+    ],
+    "check_output_shape": [
+      1,
+      3,
+      9,
+      128,
+      192
+    ],
+    "check_shape_ok": true,
+    "check_max_abs_diff_vs_pytorch": 1.722574234008789e-05,
+    "conv_layers": 45,
+    "conv_exec_types": [
+      "gemm_acl_f32",
+      "winograd_acl_f32"
+    ],
+    "ov_cpu_name": "Apple M3 Pro",
+    "ov_cpu_capabilities": [
+      "FP32",
+      "FP16",
+      "INT8",
+      "BIN",
+      "EXPORT_IMPORT"
+    ],
+    "inference_precision": "<Type: 'float32'>"
+  },
+  "results": [
+    {
+      "backend": "openvino",
+      "tiling": "none",
+      "width": 256,
+      "height": 160,
+      "frames": 9,
+      "latent_frames": 2,
+      "status": "ok",
+      "detail": "",
+      "peak_rss_gb": 0.297,
+      "wall_s": 0.7,
+      "peak_swap_delta_gb": 0.0,
+      "min_sys_avail_gb": 6.3,
+      "rss_at_phase_gb": {
+        "compile": 0.053,
+        "decode": 0.18,
+        "done": 0.34
+      },
+      "compile_or_load_s": 0.4,
+      "rss_after_load_gb": 0.18,
+      "latent_shape": [
+        1,
+        128,
+        2,
+        5,
+        8
+      ],
+      "threads": 6,
+      "decode_s": 0.09,
+      "output_shape": [
+        1,
+        3,
+        9,
+        160,
+        256
+      ],
+      "finished_at": "2026-11-11 19:23:10"
+    },
+    {
+      "backend": "openvino",
+      "tiling": "none",
+      "width": 256,
+      "height": 160,
+      "frames": 17,
+      "latent_frames": 3,
+      "status": "ok",
+      "detail": "",
+      "peak_rss_gb": 0.374,
+      "wall_s": 0.7,
+      "peak_swap_delta_gb": 0.0,
+      "min_sys_avail_gb": 6.1,
+      "rss_at_phase_gb": {
+        "compile": 0.053,
+        "decode": 0.18,
+        "done": 0.386
+      },
+      "compile_or_load_s": 0.39,
+      "rss_after_load_gb": 0.18,
+      "latent_shape": [
+        1,
+        128,
+        3,
+        5,
+        8
+      ],
+      "threads": 6,
+      "decode_s": 0.12,
+      "output_shape": [
+        1,
+        3,
+        17,
+        160,
+        256
+      ],
+      "finished_at": "2026-11-11 19:23:11"
+    },
+    {
+      "backend": "pytorch",
+      "tiling": "none",
+      "width": 256,
+      "height": 160,
+      "frames": 17,
+      "latent_frames": 3,
+      "status": "ok",
+      "detail": "",
+      "peak_rss_gb": 0.572,
+      "wall_s": 3.7,
+      "peak_swap_delta_gb": 0.0,
+      "min_sys_avail_gb": 6.22,
+      "rss_at_phase_gb": {
+        "load": 0.193,
+        "decode": 0.453,
+        "done": 0.586
+      },
+      "compile_or_load_s": 2.56,
+      "rss_after_load_gb": 0.453,
+      "latent_shape": [
+        1,
+        128,
+        3,
+        5,
+        8
+      ],
+      "threads": 6,
+      "tile_settings": null,
+      "decode_s": 0.08,
+      "output_shape": [
+        1,
+        3,
+        17,
+        160,
+        256
+      ],
+      "finished_at": "2026-11-11 19:23:15"
+    },
+    {
+      "backend": "pytorch",
+      "tiling": "spatial",
+      "width": 256,
+      "height": 160,
+      "frames": 17,
+      "latent_frames": 3,
+      "status": "ok",
+      "detail": "",
+      "peak_rss_gb": 0.535,
+      "wall_s": 3.72,
+      "peak_swap_delta_gb": 0.0,
+      "min_sys_avail_gb": 6.23,
+      "rss_at_phase_gb": {
+        "load": 0.193,
+        "decode": 0.453,
+        "done": 0.537
+      },
+      "compile_or_load_s": 2.55,
+      "rss_after_load_gb": 0.453,
+      "latent_shape": [
+        1,
+        128,
+        3,
+        5,
+        8
+      ],
+      "threads": 6,
+      "tile_settings": {
+        "min_hw": [
+          128,
+          128
+        ],
+        "stride_hw": [
+          96,
+          96
+        ],
+        "min_frames": 16,
+        "stride_frames": 8,
+        "framewise": false
+      },
+      "decode_s": 0.14,
+      "output_shape": [
+        1,
+        3,
+        17,
+        160,
+        256
+      ],
+      "finished_at": "2026-11-11 19:23:18"
+    },
+    {
+      "backend": "pytorch",
+      "tiling": "spatial+temporal",
+      "width": 256,
+      "height": 160,
+      "frames": 17,
+      "latent_frames": 3,
+      "status": "ok",
+      "detail": "",
+      "peak_rss_gb": 0.537,
+      "wall_s": 3.92,
+      "peak_swap_delta_gb": 0.0,
+      "min_sys_avail_gb": 6.24,
+      "rss_at_phase_gb": {
+        "load": 0.194,
+        "decode": 0.453,
+        "done": 0.547
+      },
+      "compile_or_load_s": 2.6,
+      "rss_after_load_gb": 0.453,
+      "latent_shape": [
+        1,
+        128,
+        3,
+        5,
+        8
+      ],
+      "threads": 6,
+      "tile_settings": {
+        "min_hw": [
+          128,
+          128
+        ],
+        "stride_hw": [
+          96,
+          96
+        ],
+        "min_frames": 16,
+        "stride_frames": 8,
+        "framewise": true
+      },
+      "decode_s": 0.26,
+      "output_shape": [
+        1,
+        3,
+        17,
+        160,
+        256
+      ],
+      "finished_at": "2026-11-11 19:23:22"
+    }
+  ]
+}

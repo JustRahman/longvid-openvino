@@ -1,0 +1,816 @@
+{
+ "stages": {
+  "clone": {
+   "ok": true,
+   "head": "1e573f46bc7143d280558fb21bdadfce65c841b9",
+   "expected": "1e573f46bc7143d280558fb21bdadfce65c841b9",
+   "subject": "[ASR][Samples] Add forced aligner timestamp generation sample (#4652) (2026-11-11)",
+   "submodules": "56bb86d9e53c371502a2ac4c1836f642cdce83fa thirdparty/openvino_tokenizers (56bb86d)",
+   "finished_at": "04:11:18"
+  },
+  "patch": {
+   "ok": true,
+   "sha256": "9c154c0991299ba7c3a8fe2be35bde290255ce5383ef5f42fd17ff00177e8977",
+   "diffstat": ".../_sections/_usage_options/index.mdx             |  36 ++++++\n .../video_generation/autoencoder_kl_ltx_video.hpp  |  18 +++\n .../genai/video_generation/generation_config.hpp   |  14 +++\n .../video_generation/generation_config_utils.cpp   |   2 +\n src/cpp/src/video_generation/ltx2_pipeline.hpp     |   2 +\n src/cpp/src/video_generation/ltx_pipeline.hpp      |  12 +-\n .../models/autoencoder_kl_ltx_video.cpp            | 118 +++++++++++++++++\n src/python/openvino_genai/py_openvino_genai.pyi    |  18 ++-\n src/python/py_video_generation_models.cpp          |  15 ++-\n src/python/py_video_generation_pipelines.cpp       |   6 +-\n tests/python_tests/test_video_generation.py        | 140 +++++++++++++++++++++\n 11 files changed, 374 insertions(+), 7 deletions(-)",
+   "finished_at": "04:11:21"
+  },
+  "openvino": {
+   "ok": true,
+   "requirements": [
+    "openvino_tokenizers~=2026.5.1.0.dev",
+    "openvino~=2026.5.1.0.dev"
+   ],
+   "openvino": "2026.5.1.dev20261111",
+   "openvino_tokenizers": "2026.5.1.0.dev20261111",
+   "finished_at": "04:11:36"
+  },
+  "build": {
+   "ok": true,
+   "seconds": 1399.5,
+   "minutes": 23.3,
+   "cores": 4,
+   "wheel": "openvino_genai-2026.5.1.0-cp313-cp313-linux_x86_64.whl",
+   "wheel_mb": 7.2,
+   "compiler": [
+    "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0"
+   ],
+   "cmake_generator": "Ninja",
+   "stub_matches_generated": true,
+   "build_changed_files": "",
+   "stub_diff_lines": 0,
+   "finished_at": "04:34:59"
+  },
+  "install": {
+   "ok": true,
+   "import_check": "2026.5.1-23845-452ed9862db 2026.5.1.0-2-0c14c1f5198 0 8",
+   "finished_at": "04:35:02"
+  },
+  "test_deps": {
+   "ok": true,
+   "requirements": [
+    "diffusers==0.39.0",
+    "optimum-intel @ git+https://github.com/huggingface/optimum-intel.git@20390257acb98993f99cdd3bf4df1c983eccadef",
+    "pytest==9.1.1",
+    "transformers==5.5.4",
+    "hf_transfer==0.1.9",
+    "tqdm==4.70.1"
+   ],
+   "openvino": "2026.5.1.dev20261111",
+   "openvino_tokenizers": "2026.5.1.0.dev20261111",
+   "openvino_genai": "2026.5.1.0",
+   "torch": "2.11.0+cpu",
+   "transformers": "5.5.4",
+   "diffusers": "0.39.0",
+   "optimum_intel": "2.2.0.dev0+2039025",
+   "finished_at": "04:36:13"
+  },
+  "tests_new": {
+   "ok": false,
+   "seconds": 127.0,
+   "summary_line": "====== 8 failed, 4 passed, 126 deselected, 3 warnings in 83.18s (0:01:23) ======",
+   "junit": {
+    "passed": 4,
+    "failure": 8,
+    "error": 0,
+    "skipped": 0,
+    "total": 12,
+    "failed_tests": [
+     {
+      "test": "test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling::test_tiling_off_matches_default",
+      "new_test": true,
+      "message": "RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:\nFailed to open \"CPU/config.json\""
+     },
+     {
+      "test": "test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling::test_chunk_not_smaller_than_clip_matches_untiled",
+      "new_test": true,
+      "message": "RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:\nFailed to open \"CPU/config.json\""
+     },
+     {
+      "test": "test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling::test_small_chunks_match_reference[chunk=2-step=1]",
+      "new_test": true,
+      "message": "RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:\nFailed to open \"CPU/config.json\""
+     },
+     {
+      "test": "test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling::test_small_chunks_match_reference[chunk=1-step=1]",
+      "new_test": true,
+      "message": "RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:\nFailed to open \"CPU/config.json\""
+     },
+     {
+      "test": "test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling::test_small_chunks_match_reference[chunk=3-step=1]",
+      "new_test": true,
+      "message": "RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:\nFailed to open \"CPU/config.json\""
+     },
+     {
+      "test": "test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling::test_small_chunks_match_reference[chunk=2-step=2]",
+      "new_test": true,
+      "message": "RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:\nFailed to open \"CPU/config.json\""
+     },
+     {
+      "test": "test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling::test_small_chunks_close_to_untiled",
+      "new_test": true,
+      "message": "RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:\nFailed to open \"CPU/config.json\""
+     },
+     {
+      "test": "test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling::test_invalid_tile_sizes_raise",
+      "new_test": true,
+      "message": "RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:\nFailed to open \"CPU/config.json\""
+     }
+    ]
+   },
+   "finished_at": "04:38:20"
+  },
+  "tests_video_generation": {
+   "ok": false,
+   "seconds": 393.1,
+   "summary_line": "= 8 failed, 119 passed, 3 skipped, 3 warnings, 41 errors in 371.54s (0:06:11) ==",
+   "junit": {
+    "passed": 119,
+    "failure": 8,
+    "error": 41,
+    "skipped": 3,
+    "total": 171,
+    "failed_tests": [
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_ltx2_3_default_config[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_b12f290a']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_ltx2_3_modality_scale_below_threshold_disables_only_that_modality[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_68160964']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_ltx2_3_negative_prompt_survives_audio_only_guidance[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_68160964']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_ltx2_3_extra_guidance_changes_output[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_68160964']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_ltx2_3_out_of_range_stg_block_is_a_noop[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_68160964']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_ltx2_3_generate_without_cfg_after_reshape_with_cfg[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_8c25d239']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_ltx2_3_reshape_sizes_cfg_batch_for_audio_guidance[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_8c25d239']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_ltx2_3_extra_guidance_runs_after_static_reshape_with_cfg[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_8c25d239']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation::test_ltx2_singleton_timestep_matches_repeated[static_shapes=False-batch=1-video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_deeb1ccc']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation::test_ltx2_singleton_timestep_matches_repeated[static_shapes=False-batch=2-video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_deeb1ccc']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation::test_ltx2_singleton_timestep_matches_repeated[static_shapes=True-batch=1-video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_deeb1ccc']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation::test_ltx2_singleton_timestep_matches_repeated[static_shapes=True-batch=2-video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_deeb1ccc']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation::test_ltx2_legacy_pipeline_microconditions[static_shapes=False-video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_deeb1ccc']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation::test_ltx2_legacy_pipeline_microconditions[static_shapes=True-video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_deeb1ccc']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_ltx2_gpu_staged_components[static_shapes=False-denoise_device=GPU.0-vae_device=GPU.0-video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_7fa0cae2']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_ltx2_gpu_staged_components[static_shapes=True-denoise_device=GPU.0-vae_device=CPU-video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_7fa0cae2']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_ltx2_gpu_staged_components[static_shapes=False-denoise_device=CPU-vae_device=GPU.0-video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_7fa0cae2']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_audio_guidance_scale_roundtrip[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_5a4bb91f']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_audio_guidance_scale_affects_audio[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_5a4bb91f']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_taylorseer_rejected[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_5a4bb91f']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_image2video_rejected[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_5a4bb91f']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_constructor_path_only[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_db0c7ad6']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_constructor_with_device[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_db0c7ad6']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_generate_with_negative_prompt[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_db0c7ad6']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_generate_with_guidance_rescale[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_db0c7ad6']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_guidance_rescale_differs_from_no_rescale[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_db0c7ad6']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_generate_with_callback[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_db0c7ad6']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_generate_callback_early_stop[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_db0c7ad6']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_generate_deterministic_with_seed[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_db0c7ad6']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_num_videos_per_prompt[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_db0c7ad6']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_num_frames_floored_with_matching_audio[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_db0c7ad6']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_get_generation_config[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_db0c7ad6']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_set_generation_config[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_db0c7ad6']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_cpp_std_generator[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_db0c7ad6']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_reshape[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_db0c7ad6']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_reshape_multiple_videos_with_cfg[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_db0c7ad6']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_generate_without_cfg_default_compile[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_db0c7ad6']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_generate_with_cfg_after_reshape_without_cfg[video_generation_model=tiny-random-ltx2.3]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_db0c7ad6']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_generate_basic[video_generation_model=tiny-random-ltx2.3-audio_sample_rate=48000]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_c49ffde5']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_ignored_negative_prompt_warns[video_generation_model=tiny-random-ltx2.3-guidance3-warns=False]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_a601fc55']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestVideoGenerationPipelines::test_ignored_negative_prompt_warns[video_generation_model=tiny-random-ltx2.3-guidance4-warns=True]",
+      "new_test": false,
+      "message": "failed on setup with \"subprocess.CalledProcessError: Command '['optimum-cli', 'export', 'openvino', '--model', 'optimum-intel-internal-testing/tiny-random-ltx2.3', '--trust-remote-code', '/tmp/s5_work/ov_cache/20261112/optimum-intel-2.2.0.dev0+2039025_transformers-5.5.4/converted_models/tiny-random-ltx2.3/optimum-intel-internal-testing/.tmp_tiny-random-ltx2.3_2982e364']' returned non-zero exit sta"
+     },
+     {
+      "test": "test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling::test_tiling_off_matches_default",
+      "new_test": true,
+      "message": "RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:\nFailed to open \"CPU/config.json\""
+     },
+     {
+      "test": "test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling::test_chunk_not_smaller_than_clip_matches_untiled",
+      "new_test": true,
+      "message": "RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:\nFailed to open \"CPU/config.json\""
+     },
+     {
+      "test": "test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling::test_small_chunks_match_reference[chunk=2-step=1]",
+      "new_test": true,
+      "message": "RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:\nFailed to open \"CPU/config.json\""
+     },
+     {
+      "test": "test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling::test_small_chunks_match_reference[chunk=1-step=1]",
+      "new_test": true,
+      "message": "RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:\nFailed to open \"CPU/config.json\""
+     },
+     {
+      "test": "test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling::test_small_chunks_match_reference[chunk=3-step=1]",
+      "new_test": true,
+      "message": "RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:\nFailed to open \"CPU/config.json\""
+     },
+     {
+      "test": "test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling::test_small_chunks_match_reference[chunk=2-step=2]",
+      "new_test": true,
+      "message": "RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:\nFailed to open \"CPU/config.json\""
+     },
+     {
+      "test": "test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling::test_small_chunks_close_to_untiled",
+      "new_test": true,
+      "message": "RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:\nFailed to open \"CPU/config.json\""
+     },
+     {
+      "test": "test_video_generation.TestAutoEncoderKLLTXVideoTemporalTiling::test_invalid_tile_sizes_raise",
+      "new_test": true,
+      "message": "RuntimeError: Check 'file.is_open()' failed at /tmp/s5_work/openvino.genai/src/cpp/src/video_generation/models/autoencoder_kl_ltx_video.cpp:136:\nFailed to open \"CPU/config.json\""
+     }
+    ]
+   },
+   "finished_at": "04:44:53"
+  }
+ },
+ "started": "2026-11-12 04:11:11",
+ "base_commit": "1e573f46bc7143d280558fb21bdadfce65c841b9",
+ "patch_sha256": "9c154c0991299ba7c3a8fe2be35bde290255ce5383ef5f42fd17ff00177e8977",
+ "machine": "Intel(R) Xeon(R) CPU @ 2.20GHz, 4 CPUs, python 3.13.18, Linux-6.18.55+-x86_64-with-glibc2.39.",
+ "parity": {
+  "width": 512,
+  "height": 320,
+  "tile_t": [
+   16,
+   8
+  ],
+  "setup": {
+   "convert": {
+    "status": "ok",
+    "detail": "",
+    "peak_rss_gb": 1.745,
+    "wall_s": 58.4,
+    "rss_at_phase_gb": {
+     "load": 0.031,
+     "convert": 0.526,
+     "done": 1.745
+    },
+    "convert_s": 40.98,
+    "conv3d_rewritten_as_2d": 0,
+    "ir_bytes": 955157584
+   },
+   "encode": {
+    "status": "ok",
+    "detail": "",
+    "peak_rss_gb": 3.649,
+    "wall_s": 152.9,
+    "rss_at_phase_gb": {
+     "clip": 0.214,
+     "load": 0.445,
+     "encode": 0.751,
+     "done": 1.498
+    },
+    "clip_frames_in_file": 49,
+    "clip_extended_by_ping_pong": true,
+    "video_shape": [
+     1,
+     3,
+     97,
+     320,
+     512
+    ],
+    "tiled_encode": false,
+    "encode_s": 135.99,
+    "latent_shape": [
+     1,
+     128,
+     13,
+     10,
+     16
+    ],
+    "latent_std": 0.3600846529006958
+   }
+  },
+  "runs": [
+   {
+    "frames": 49,
+    "variant": "cpp_untiled",
+    "status": "ok",
+    "detail": "",
+    "peak_rss_gb": 3.446,
+    "wall_s": 75.9,
+    "decode_s": 74.23,
+    "decoder_calls": null,
+    "latent_shape": [
+     1,
+     128,
+     7,
+     10,
+     16
+    ],
+    "output_shape": [
+     1,
+     49,
+     320,
+     512,
+     3
+    ]
+   },
+   {
+    "frames": 49,
+    "variant": "cpp_tiled",
+    "status": "ok",
+    "detail": "",
+    "peak_rss_gb": 2.515,
+    "wall_s": 146.9,
+    "decode_s": 145.31,
+    "decoder_calls": null,
+    "latent_shape": [
+     1,
+     128,
+     7,
+     10,
+     16
+    ],
+    "output_shape": [
+     1,
+     49,
+     320,
+     512,
+     3
+    ]
+   },
+   {
+    "frames": 49,
+    "variant": "py_untiled",
+    "status": "ok",
+    "detail": "",
+    "peak_rss_gb": 3.743,
+    "wall_s": 77.1,
+    "decode_s": 74.57,
+    "decoder_calls": 1,
+    "latent_shape": [
+     1,
+     128,
+     7,
+     10,
+     16
+    ],
+    "output_shape": [
+     1,
+     49,
+     320,
+     512,
+     3
+    ]
+   },
+   {
+    "frames": 49,
+    "variant": "py_tiled",
+    "status": "ok",
+    "detail": "",
+    "peak_rss_gb": 2.745,
+    "wall_s": 153.8,
+    "decode_s": 151.34,
+    "decoder_calls": 6,
+    "latent_shape": [
+     1,
+     128,
+     7,
+     10,
+     16
+    ],
+    "output_shape": [
+     1,
+     49,
+     320,
+     512,
+     3
+    ]
+   },
+   {
+    "frames": 49,
+    "variant": "py_tiling_on_cpp_decoder",
+    "status": "ok",
+    "detail": "",
+    "peak_rss_gb": 2.672,
+    "wall_s": 149.1,
+    "decode_s": 146.44,
+    "decoder_calls": 6,
+    "latent_shape": [
+     1,
+     128,
+     7,
+     10,
+     16
+    ],
+    "output_shape": [
+     1,
+     49,
+     320,
+     512,
+     3
+    ]
+   },
+   {
+    "frames": 97,
+    "variant": "cpp_untiled",
+    "status": "ok",
+    "detail": "",
+    "peak_rss_gb": 4.901,
+    "wall_s": 151.0,
+    "decode_s": 149.26,
+    "decoder_calls": null,
+    "latent_shape": [
+     1,
+     128,
+     13,
+     10,
+     16
+    ],
+    "output_shape": [
+     1,
+     97,
+     320,
+     512,
+     3
+    ]
+   },
+   {
+    "frames": 97,
+    "variant": "cpp_tiled",
+    "status": "ok",
+    "detail": "",
+    "peak_rss_gb": 2.567,
+    "wall_s": 310.1,
+    "decode_s": 308.43,
+    "decoder_calls": null,
+    "latent_shape": [
+     1,
+     128,
+     13,
+     10,
+     16
+    ],
+    "output_shape": [
+     1,
+     97,
+     320,
+     512,
+     3
+    ]
+   },
+   {
+    "frames": 97,
+    "variant": "py_untiled",
+    "status": "ok",
+    "detail": "",
+    "peak_rss_gb": 5.507,
+    "wall_s": 152.6,
+    "decode_s": 149.02,
+    "decoder_calls": 1,
+    "latent_shape": [
+     1,
+     128,
+     13,
+     10,
+     16
+    ],
+    "output_shape": [
+     1,
+     97,
+     320,
+     512,
+     3
+    ]
+   },
+   {
+    "frames": 97,
+    "variant": "py_tiled",
+    "status": "ok",
+    "detail": "",
+    "peak_rss_gb": 3.01,
+    "wall_s": 312.9,
+    "decode_s": 309.48,
+    "decoder_calls": 12,
+    "latent_shape": [
+     1,
+     128,
+     13,
+     10,
+     16
+    ],
+    "output_shape": [
+     1,
+     97,
+     320,
+     512,
+     3
+    ]
+   },
+   {
+    "frames": 97,
+    "variant": "py_tiling_on_cpp_decoder",
+    "status": "ok",
+    "detail": "",
+    "peak_rss_gb": 2.87,
+    "wall_s": 306.9,
+    "decode_s": 303.31,
+    "decoder_calls": 12,
+    "latent_shape": [
+     1,
+     128,
+     13,
+     10,
+     16
+    ],
+    "output_shape": [
+     1,
+     97,
+     320,
+     512,
+     3
+    ]
+   }
+  ],
+  "comparisons": [
+   {
+    "max_abs_diff": 0,
+    "psnr_db": null,
+    "worst_frame_psnr_db": null,
+    "worst_frame": 0,
+    "differing_values_share": 0.0,
+    "frames": 49,
+    "test": "cpp_tiled",
+    "ref": "py_tiling_on_cpp_decoder",
+    "what": "tiling logic: C++ vs Python reference on the same decoder",
+    "tolerance": 1,
+    "passed": true
+   },
+   {
+    "max_abs_diff": 21,
+    "psnr_db": 58.34,
+    "worst_frame_psnr_db": 55.28,
+    "worst_frame": 45,
+    "differing_values_share": 0.094893,
+    "frames": 49,
+    "test": "cpp_tiled",
+    "ref": "py_tiled",
+    "what": "C++ (blend after clamp, uint8) vs Python reference (blend raw float, then clamp)",
+    "tolerance": null,
+    "passed": null
+   },
+   {
+    "max_abs_diff": 0,
+    "psnr_db": null,
+    "worst_frame_psnr_db": null,
+    "worst_frame": 0,
+    "differing_values_share": 0.0,
+    "frames": 49,
+    "test": "cpp_untiled",
+    "ref": "py_untiled",
+    "what": "no tiling: GenAI post-processing vs NumPy post-processing",
+    "tolerance": null,
+    "passed": null
+   },
+   {
+    "max_abs_diff": 115,
+    "psnr_db": 43.03,
+    "worst_frame_psnr_db": 36.69,
+    "worst_frame": 48,
+    "differing_values_share": 0.319915,
+    "frames": 49,
+    "test": "cpp_tiled",
+    "ref": "cpp_untiled",
+    "what": "cost of tiling, C++",
+    "tolerance": null,
+    "passed": null
+   },
+   {
+    "max_abs_diff": 115,
+    "psnr_db": 43.07,
+    "worst_frame_psnr_db": 36.74,
+    "worst_frame": 48,
+    "differing_values_share": 0.310194,
+    "frames": 49,
+    "test": "py_tiled",
+    "ref": "py_untiled",
+    "what": "cost of tiling, Python reference",
+    "tolerance": null,
+    "passed": null
+   },
+   {
+    "max_abs_diff": 0,
+    "psnr_db": null,
+    "worst_frame_psnr_db": null,
+    "worst_frame": 0,
+    "differing_values_share": 0.0,
+    "frames": 97,
+    "test": "cpp_tiled",
+    "ref": "py_tiling_on_cpp_decoder",
+    "what": "tiling logic: C++ vs Python reference on the same decoder",
+    "tolerance": 1,
+    "passed": true
+   },
+   {
+    "max_abs_diff": 21,
+    "psnr_db": 57.48,
+    "worst_frame_psnr_db": 54.63,
+    "worst_frame": 93,
+    "differing_values_share": 0.115667,
+    "frames": 97,
+    "test": "cpp_tiled",
+    "ref": "py_tiled",
+    "what": "C++ (blend after clamp, uint8) vs Python reference (blend raw float, then clamp)",
+    "tolerance": null,
+    "passed": null
+   },
+   {
+    "max_abs_diff": 0,
+    "psnr_db": null,
+    "worst_frame_psnr_db": null,
+    "worst_frame": 0,
+    "differing_values_share": 0.0,
+    "frames": 97,
+    "test": "cpp_untiled",
+    "ref": "py_untiled",
+    "what": "no tiling: GenAI post-processing vs NumPy post-processing",
+    "tolerance": null,
+    "passed": null
+   },
+   {
+    "max_abs_diff": 132,
+    "psnr_db": 42.62,
+    "worst_frame_psnr_db": 37.97,
+    "worst_frame": 96,
+    "differing_values_share": 0.376392,
+    "frames": 97,
+    "test": "cpp_tiled",
+    "ref": "cpp_untiled",
+    "what": "cost of tiling, C++",
+    "tolerance": null,
+    "passed": null
+   },
+   {
+    "max_abs_diff": 132,
+    "psnr_db": 42.65,
+    "worst_frame_psnr_db": 38.0,
+    "worst_frame": 96,
+    "differing_values_share": 0.367136,
+    "frames": 97,
+    "test": "py_tiled",
+    "ref": "py_untiled",
+    "what": "cost of tiling, Python reference",
+    "tolerance": null,
+    "passed": null
+   }
+  ]
+ }
+}

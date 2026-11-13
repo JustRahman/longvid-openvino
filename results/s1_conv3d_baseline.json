@@ -1,0 +1,19 @@
+{
+  "latents": [
+    1,
+    128,
+    2,
+    6,
+    8
+  ],
+  "naive_conv3d_ir_decode_s": 102.25,
+  "naive_conv_layers": 45,
+  "naive_conv_exec_types": [
+    "ref_any_f32"
+  ],
+  "naive_conv_time_s": 100.74,
+  "naive_max_abs_diff_vs_pt": 2.5138258934020996e-05,
+  "conv2d_ir_decode_s": 2.72,
+  "pytorch_decode_s": 3.25,
+  "run_time": "2026-11-11 18:56:30"
+}

@@ -1,0 +1,12 @@
+openvino>=2026.4
+numpy
+torch
+diffusers>=0.39
+huggingface_hub
+safetensors
+scikit-image
+imageio[ffmpeg]
+pillow
+psutil
+nncf
+pytest

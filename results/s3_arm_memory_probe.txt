@@ -1,0 +1,25 @@
+scripts/s3_arm_memory_probe.py, real decoder IR models/ltx_vae_ov/vae_decoder.xml (Conv3d-as-Conv2d), 4 threads,
+latents [1,128,2,5,8] = 9 frames at 256x160. Phases: compile, decode, same decode again, a decode of another
+shape, first decode again. The probe exits when RSS passes the cap (GB). Run on 2026-11-11.
+
+$ s3_arm_memory_probe.py 9 '{"INFERENCE_PRECISION_HINT":"f32"}' 5.0
+OVER CAP, exit
+loaded         t=  0.56s rss_now=1.05 peak_in_phase=1.05
+end            t=  4.20s rss_now=5.03 peak_in_phase=5.03
+
+$ s3_arm_memory_probe.py 9 '{"INFERENCE_PRECISION_HINT":"f16"}' 5.0
+OVER CAP, exit
+loaded         t=  1.94s rss_now=1.50 peak_in_phase=1.49
+end            t=  3.46s rss_now=5.02 peak_in_phase=5.02
+
+$ s3_arm_memory_probe.py 9 '{"INFERENCE_PRECISION_HINT":"f32"}' 6.0
+OVER CAP, exit
+loaded         t=  0.56s rss_now=1.05 peak_in_phase=1.05
+decode1        t=  5.40s rss_now=3.90 peak_in_phase=5.03
+decode2        t=  6.73s rss_now=5.68 peak_in_phase=5.68
+end            t=  6.90s rss_now=6.03 peak_in_phase=6.03
+
+$ s3_arm_memory_probe.py 9 '{"INFERENCE_PRECISION_HINT":"f32","CPU_RUNTIME_CACHE_CAPACITY":"0"}' 5.5
+OVER CAP, exit
+loaded         t=  1.37s rss_now=1.05 peak_in_phase=1.05
+end            t=  4.31s rss_now=5.59 peak_in_phase=5.59

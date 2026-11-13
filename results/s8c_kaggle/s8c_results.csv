@@ -1,0 +1,11 @@
+section,name,width,height,frames,mode,chunk,overlap,stride,status,detail,peak_rss_gb,wall_s,load_s,rss_after_load_gb,threads,decode_s,rss_after_decode_gb,decoder_calls,finished_at
+C,tune_768x512_97f_untiled,768,512,97,none,,,,ok,,9.688,347.37,1.02,1.018,2,345.24,9.688,1,2026-11-12 07:35:20
+C,tune_768x512_97f_chunk16_overlap8,768,512,97,temporal,16,8,8,ok,,3.893,703.75,1.02,1.018,2,702.03,3.704,12,2026-11-12 07:47:04
+C,tune_768x512_97f_chunk24_overlap8,768,512,97,temporal,24,8,16,ok,,4.691,517.72,0.99,1.018,2,515.94,4.466,6,2026-11-12 07:56:04
+C,tune_768x512_97f_chunk24_overlap16,768,512,97,temporal,24,16,8,ok,,4.795,998.05,1.05,1.017,2,996.09,4.466,12,2026-11-12 08:13:06
+C,tune_768x512_97f_chunk32_overlap8,768,512,97,temporal,32,8,24,ok,,5.165,447.85,1.07,1.018,2,445.99,4.905,4,2026-11-12 08:20:56
+C,tune_768x512_97f_chunk32_overlap16,768,512,97,temporal,32,16,16,timeout,killed after 641 s during decode,5.269,641.02,0.99,1.014,2,,,,2026-11-12 08:32:01
+C,tune_768x512_97f_chunk48_overlap8,768,512,97,temporal,48,8,40,skipped,time budget used up,,,,,,,,,2026-11-12 08:32:01
+C,tune_768x512_97f_chunk48_overlap16,768,512,97,temporal,48,16,32,skipped,time budget used up,,,,,,,,,2026-11-12 08:32:01
+C,tune_768x512_97f_chunk64_overlap8,768,512,97,temporal,64,8,56,skipped,time budget used up,,,,,,,,,2026-11-12 08:32:01
+C,tune_768x512_97f_chunk64_overlap16,768,512,97,temporal,64,16,48,skipped,time budget used up,,,,,,,,,2026-11-12 08:32:01
